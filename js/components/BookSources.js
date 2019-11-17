@@ -5,12 +5,10 @@ import React from "react";
 import {
     ActivityIndicator,
     Button,
-    Image,
     PixelRatio,
     ScrollView,
     StyleSheet,
     Text,
-    TextInput,
     TouchableHighlight,
     View
 } from "react-native";
@@ -23,9 +21,9 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {BookInfo} from "../model/BookInfo";
 import {ZSSQ_SEARCH} from "../constants/api";
 import {requestOtherSearch} from "../actions/otherSearch";
-import MainSearchContent from "../commons/MainSearchContent";
 import I18n from "../i18n/i18n";
 import {getChineseText, Simplified} from "../utils/LanguageUtil";
+import FastImage from "react-native-fast-image";
 
 const _uniq = require("lodash/uniq");
 class BookSources extends React.Component {
@@ -181,7 +179,7 @@ class BookSources extends React.Component {
                                             }}>
                             <View>
                                 <View style={styles.itemContent}>
-                                    <Image source={{uri: item.img}}
+                                    <FastImage source={{uri: item.img}}
                                            style={styles.bookImage}/>
                                     <View style={styles.itemText}>
                                         <Text style={styles.bookTitle}>{getChineseText(item.title)}</Text>

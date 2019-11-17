@@ -2,12 +2,13 @@
  * @author Semper
  */
 import React from "react";
-import {Image, StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import Carousel from "./carousel/Carousel";
 import {WIDTH} from "../utils/DimensionsUtil";
 import {connect} from "react-redux";
 import {SpreadData} from "../model/SpreadData";
 import {Spread} from "../model/Spread";
+import FastImage from "react-native-fast-image";
 
 class ImageCarousel extends React.Component {
 
@@ -46,7 +47,7 @@ class ImageCarousel extends React.Component {
                 style={styles.item}
                 underlayColor='#fff'
             >
-                <Image resizeMode='cover' source={{uri: info.item.img}}
+                <FastImage resizeMode={FastImage.resizeMode.cover} source={{uri: info.item.img}}
                        style={{width: WIDTH, height: WIDTH / 3}}/>
             </TouchableHighlight>
         )

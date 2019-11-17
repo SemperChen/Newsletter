@@ -1,5 +1,5 @@
 import React from "react";
-import {ActivityIndicator, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {ActivityIndicator, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {BOOK_DETAIL_BASE, BOOKMARKS_URL, ZSSQ_IMG_URL, ZSSQ_NAME} from "../constants/api";
 import I18n from "../i18n/i18n";
 import {WIDTH} from "../utils/DimensionsUtil";
@@ -12,6 +12,7 @@ import {getChineseText} from "../utils/LanguageUtil";
 import BookSources1 from "../components/BookSources1";
 import type {Bookmarks} from "../model/Bookmark";
 import ToastUtil from "../utils/ToastUtil";
+import FastImage from "react-native-fast-image";
 
 class MainDetail extends React.PureComponent {
 
@@ -168,7 +169,7 @@ class MainDetail extends React.PureComponent {
     _renderInfo = (color) => {
         return (
             <View style={styles.bookInfo}>
-                <Image source={{uri: ZSSQ_IMG_URL + this.props.bookDetail.cover}}
+                <FastImage source={{uri: ZSSQ_IMG_URL + this.props.bookDetail.cover}}
                        style={styles.bookImage}/>
                 <View style={{justifyContent: 'space-around', marginLeft: 12}}>
                     <Text style={styles.bookTitle}>{getChineseText(this.props.bookDetail.title)}</Text>

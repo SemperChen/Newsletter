@@ -5,7 +5,6 @@ import React from "react";
 import {
     ActivityIndicator,
     Button,
-    Image,
     PixelRatio,
     ScrollView,
     StyleSheet,
@@ -24,6 +23,7 @@ import {requestOtherSearch} from "../actions/otherSearch";
 import I18n from "../i18n/i18n";
 import {getChineseText, Simplified} from "../utils/LanguageUtil";
 import ToastUtil from "../utils/ToastUtil";
+import FastImage from "react-native-fast-image";
 
 const _uniq = require("lodash/uniq");
 class Search extends React.Component {
@@ -198,7 +198,7 @@ class Search extends React.Component {
                                             }}>
                             <View>
                                 <View style={styles.itemContent}>
-                                    <Image source={{uri: item.img}}
+                                    <FastImage source={{uri: item.img}}
                                            style={styles.bookImage}/>
                                     <View style={styles.itemText}>
                                         <Text style={styles.bookTitle}>{getChineseText(item.title)}</Text>

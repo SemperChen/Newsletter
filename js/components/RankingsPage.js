@@ -2,12 +2,13 @@
  * @author Semper
  */
 import React from 'react';
-import {Image, InteractionManager, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {InteractionManager, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
 import {RANKINGS_URL, ZSSQ_IMG_URL} from "../constants/api";
 import {requestRankings} from "../actions/rankings";
 import I18n from "../i18n/i18n";
 import {getChineseText} from "../utils/LanguageUtil";
+import FastImage from "react-native-fast-image";
 
 class RankingsPage extends React.Component {
 
@@ -53,7 +54,7 @@ class RankingsPage extends React.Component {
                                         this.navToRankingDetail(item)
                                     }}>
                                     <View style={styles.item}>
-                                        <Image
+                                        <FastImage
                                             source={index < 7
                                                 ?
                                                 {uri: ZSSQ_IMG_URL + item.cover}
@@ -75,7 +76,7 @@ class RankingsPage extends React.Component {
                                     this.navToRankingDetail(item)
                                 }}>
                                     <View style={styles.item}>
-                                        <Image
+                                        <FastImage
                                             source={index < 7
                                                 ?
                                                 {uri: ZSSQ_IMG_URL + item.cover}

@@ -65,7 +65,7 @@ export const CATEGORY_BOOKS_URL = ZSSQ_BASE_URL + '/book/by-categories';
 export const SPREAD_URL = 'https://raw.githubusercontent.com/SimpeChan/Notification/a4833de749027dbd31195dda04b3c9fb5df5daa1/spread.json';
 export const OTHER_SEARCH_URLS = [
     {siteName: EXIAOSHUO1_NAME, searchUrl: EXIAOSHUO1_SEARCH,unicodeName:UNICODE_TYPE.UTF8},
-    {siteName: EXIAOSHUO2_NAME, searchUrl: EXIAOSHUO2_SEARCH,unicodeName:UNICODE_TYPE.UTF8},
+    // {siteName: EXIAOSHUO2_NAME, searchUrl: EXIAOSHUO2_SEARCH,unicodeName:UNICODE_TYPE.UTF8},
     {siteName: EXIAOSHUO3_NAME, searchUrl: EXIAOSHUO3_SEARCH,unicodeName:UNICODE_TYPE.UTF8},
     {siteName: EXIAOSHUO4_NAME, searchUrl: EXIAOSHUO4_SEARCH,unicodeName:UNICODE_TYPE.UTF8},
     {siteName: EXIAOSHUO5_NAME, searchUrl: EXIAOSHUO5_SEARCH,unicodeName:UNICODE_TYPE.UTF8},

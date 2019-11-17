@@ -2,9 +2,10 @@
  * @author Semper
  */
 import React from "react";
-import {Image, StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH, WIDTH} from "../utils/DimensionsUtil";
 import {getChineseText} from "../utils/LanguageUtil";
+import FastImage from "react-native-fast-image";
 
 const BOOKMARK_MARGIN = WIDTH / 24;
 
@@ -23,7 +24,7 @@ class BookmarkComponent extends React.Component {
             >
                 <View>
                     <View style={styles.bookImageContainer}>
-                        <Image source={{uri: this.props.bookmark.image}}
+                        <FastImage source={{uri: this.props.bookmark.image}}
                                style={styles.bookImage}/>
                     </View>
 
@@ -49,12 +50,12 @@ const styles = StyleSheet.create({
     },
     bookImageContainer: {
         margin: BOOKMARK_MARGIN,
-        elevation: 10,
+        // elevation: 10,
         backgroundColor: '#ddd',
-        shadowOffset: {width: 3, height: 3},
-        shadowColor: 'black',
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
+        // shadowOffset: {width: 3, height: 3},
+        // shadowColor: 'black',
+        // shadowOpacity: 0.2,
+        // shadowRadius: 3,
     }
 });
 export default BookmarkComponent

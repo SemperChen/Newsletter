@@ -2,7 +2,7 @@
  * @author Semper
  */
 import React from "react";
-import {Image, StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH} from "../utils/DimensionsUtil";
 import {BOOKMARKS_URL, ZSSQ_IMG_URL, ZSSQ_NAME} from "../constants/api";
 import ReadButton from "./ReadButton";
@@ -13,6 +13,7 @@ import {saveBookmark} from "../utils/BookmarkUtil";
 import {requestBookmarks} from "../actions/bookmarks";
 import I18n from "../i18n/i18n";
 import {getChineseText} from "../utils/LanguageUtil";
+import FastImage from "react-native-fast-image";
 class MainSearchContent extends React.Component {
 
     componentDidMount() {
@@ -85,7 +86,7 @@ class MainSearchContent extends React.Component {
                                     this.props.navBookDetail(this.bookInfo._id, ZSSQ_NAME)
                                 }}>
                 <View style={styles.bookInfo}>
-                    <Image source={{uri: ZSSQ_IMG_URL + this.bookInfo.cover}}
+                    <FastImage source={{uri: ZSSQ_IMG_URL + this.bookInfo.cover}}
                            style={styles.bookImage}/>
                     <View style={{justifyContent: 'space-around', marginLeft: 12}}>
                         <Text style={styles.bookTitle}>{getChineseText(this.bookInfo.title)}</Text>

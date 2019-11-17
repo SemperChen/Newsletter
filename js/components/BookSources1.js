@@ -2,28 +2,13 @@
  * @author Semper
  */
 import React from "react";
-import {
-    ActivityIndicator,
-    Button,
-    DeviceEventEmitter,
-    Image,
-    PixelRatio,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableHighlight,
-    TouchableOpacity,
-    View
-} from "react-native";
-import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH} from "../utils/DimensionsUtil";
+import {View} from "react-native";
 import {connect} from "react-redux";
-import {requestSearch} from "../actions/search";
 import {getOtherSearchBookInfo} from "../utils/ParseHtmlUtil";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import {BOOKMARKS_URL, OTHER_SEARCH_URLS, ZSSQ_SEARCH} from "../constants/api";
+import {BOOKMARKS_URL, OTHER_SEARCH_URLS} from "../constants/api";
 import {requestOtherSearch} from "../actions/otherSearch";
 import I18n from "../i18n/i18n";
-import {getChineseText, Simplified} from "../utils/LanguageUtil";
+import {Simplified} from "../utils/LanguageUtil";
 import type {Bookmarks} from "../model/Bookmark";
 import {saveBookmark} from "../utils/BookmarkUtil";
 import {requestBookmarks} from "../actions/bookmarks";

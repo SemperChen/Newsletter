@@ -2,7 +2,7 @@
  * @author Semper
  */
 import React from "react";
-import {Image, InteractionManager, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {InteractionManager, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
 import {requestCategory} from "../actions/category";
 import {CATEGORY_LV2_URL} from "../constants/api";
@@ -11,6 +11,7 @@ import I18n from "../i18n/i18n";
 import {TAB_ICON_SIZE} from "../constants/constants";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {getChineseText} from "../utils/LanguageUtil";
+import FastImage from "react-native-fast-image";
 
 const leftView = WIDTH / 6;
 const categoryItemMargin = WIDTH / 10;
@@ -221,7 +222,7 @@ class CategoryPage extends React.Component {
                                                             height: categoryItemHeight,
                                                         }]}>
                                                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                                            <Image
+                                                            <FastImage
                                                                 style={{
                                                                     width: categoryItemHeight / 4 * 3 / 3 * 2,
                                                                     height: categoryItemHeight / 3 * 2,
@@ -253,7 +254,7 @@ class CategoryPage extends React.Component {
                                                             height: categoryItemHeight,
                                                         }]}>
                                                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                                            <Image
+                                                            <FastImage
                                                                 style={{
                                                                     width: categoryItemHeight / 4 * 3 / 3 * 2,
                                                                     height: categoryItemHeight / 3 * 2,

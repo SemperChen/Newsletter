@@ -2,7 +2,7 @@
  * @author Semper
  */
 import React from 'react';
-import {Alert, ScrollView, StatusBar, StyleSheet, Text, View, Platform, ToastAndroid, Image, TouchableOpacity} from "react-native";
+import {Alert, ScrollView, StatusBar, StyleSheet, Text, View, Platform, ToastAndroid, TouchableOpacity} from "react-native";
 import {connect} from "react-redux";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import BookmarkComponent from "../commons/BookmarkComponent";
@@ -15,6 +15,7 @@ import RNFS from "react-native-fs";
 import ToastUtil from "../utils/ToastUtil";
 import codePush from "react-native-code-push";
 import {saveAppConfig} from "../utils/ConfigUtil";
+import FastImage from "react-native-fast-image";
 
 class Bookcase extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => ({
@@ -216,7 +217,7 @@ class Bookcase extends React.Component {
                             paddingTop: 40,
                         }}>
                             <View style={styles.bookImage}>
-                                <Image source={{uri: sortBookmarks[0].image}}
+                                <FastImage source={{uri: sortBookmarks[0].image}}
                                        style={[styles.bookImage, {
                                            position: 'absolute',
                                            bottom: -40
