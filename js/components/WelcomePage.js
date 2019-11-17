@@ -1,102 +1,119 @@
-import React from 'react';
-import {Text, View, Button, ToastAndroid} from 'react-native';
-import CodePush from "react-native-code-push";
+/**
+ * @author Semper
+ */
+import React from "react";
+import {ActivityIndicator, StatusBar, StyleSheet, Text, View} from "react-native";
+import {connect} from "react-redux";
+import {requestConfig} from "../actions/config";
+import {getLanguages} from 'react-native-i18n'
+import {CHINESE_TYPE} from "../constants/constants";
+import {saveAppConfig} from "../utils/ConfigUtil";
+import {HEIGHT} from "../utils/DimensionsUtil";
 
 class WelcomePage extends React.Component {
+    static navigationOptions = {
+        header: null
+    };
+
+    componentWillMount() {
+        try{
+            StatusBar.setHidden(true);
+            getLanguages().then(languages => {
+                if (languages[0] === 'zh-CN' || languages[0] === 'zh-Hans-US' || languages[0] === 'zh-Hans-CN') {
+                    global.globalChineseType = CHINESE_TYPE.CN;
+                } else {
+                    global.globalChineseType = CHINESE_TYPE.TW;
+                    NovelAppConfig.isTraditional = true;
+                }
+                // console.log('languages', languages) // ['en-US', 'en']
+            })
+        }catch(e){
+            console.warn('WelcomePage componentWillMount func',e.message)
+        }
+
+    }
 
     componentDidMount() {
-        // this.syncImmediate()
+        this.props.dispatch(requestConfig());
     }
 
-    syncImmediate() {
+    initVIPExperience=()=>{
+        try{
+            this.time = new Date().getTime();
+            let day = 86400000;
+            //86400000毫秒/天
+            this.sum = parseInt((this.time-NovelAppConfig.VIPServiceTime)/day);
+            if(this.sum>0){
+                if(NovelAppConfig.VIPExperienceDays>=this.sum){
+                    NovelAppConfig.VIPExperienceDays = NovelAppConfig.VIPExperienceDays-this.sum
+                }else {
+                    NovelAppConfig.VIPExperienceDays = 0
+                }
+                NovelAppConfig.VIPServiceTime = this.time;
+            }else if(NovelAppConfig.VIPExperienceDays<1){
+                NovelAppConfig.VIPServiceTime = this.time;
+            }
+        }catch(e){
+            console.warn('WelcomePage initVIPExperience func',e.message)
+        }
 
-        CodePush.sync( {
+    };
 
-                //安装模式
-
-                //ON_NEXT_RESUME 下次恢复到前台时
-
-                //ON_NEXT_RESTART 下一次重启时
-
-                //IMMEDIATE 马上更新
-
-                installMode : CodePush.InstallMode.IMMEDIATE ,
-
-                //对话框
-
-                updateDialog : {
-
-                    //是否显示更新描述
-
-                    appendReleaseDescription : true ,
-
-                    //更新描述的前缀。 默认为"Description"
-
-                    descriptionPrefix : "更新内容：" ,
-
-                    //强制更新按钮文字，默认为continue
-
-                    mandatoryContinueButtonLabel : "立即更新" ,
-
-                    //强制更新时的信息. 默认为"An update is available that must be installed."
-
-                    mandatoryUpdateMessage : "必须更新后才能使用" ,
-
-                    //非强制更新时，按钮文字,默认为"ignore"
-
-                    optionalIgnoreButtonLabel : '稍后' ,
-
-                    //非强制更新时，确认按钮文字. 默认为"Install"
-
-                    optionalInstallButtonLabel : '后台更新' ,
-
-                    //非强制更新时，检查到更新的消息文本
-
-                    optionalUpdateMessage : '有新版本了，是否更新？' ,
-
-                    //Alert窗口的标题
-
-                    title : '更新提示'
-
-                } ,
-
-            } ,
-            this.codePushStatusDidChange.bind(this)
-        );
-
-    }
-
-    codePushStatusDidChange(status) {
-
-        switch (status) {
-            case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
-                // ToastAndroid.show('正在检查更新', ToastAndroid.SHORT);
-                break;
-            case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
-                ToastAndroid.show('正在下载更新', ToastAndroid.SHORT);
-                break;
-            case CodePush.SyncStatus.INSTALLING_UPDATE:
-                // ToastAndroid.show('正在安装更新中', ToastAndroid.SHORT);
-                break;
-            case CodePush.SyncStatus.UP_TO_DATE:
-                break;
-            case CodePush.SyncStatus.UPDATE_INSTALLED:
-                break;
+    shouldComponentUpdate(nextProps) {
+        if (this.props.configData === nextProps.configData) {
+            return false
+        } else {
+            if (nextProps.configData.length !== 0) {
+                const {codeVersion} = nextProps.configData
+                if(codeVersion&&codeVersion===NovelAppConfig.codeVersion){
+                    global.NovelAppConfig = nextProps.configData
+                }
+            }
+            this.props.screenProps.setTheme(NovelAppConfig.themeColorName);
+            this.timer = setTimeout(() => {
+                this._navToSplash()
+            }, 1500);
+            this.initVIPExperience();
+            saveAppConfig(NovelAppConfig);
+            return !nextProps.configData;
         }
     }
 
+    componentWillUnmount() {
+        this.timer && clearTimeout(this.timer);
+    }
+
+    _navToSplash = () => {
+        this.props.navigation.navigate('Splash');
+    };
+
     render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>WelcomePage1112322</Text>
-                <Button
-                    onPress={()=>{
-                        this.props.navigation.navigate("Home")
-                    }}
-                    title={"导航到主页"}/>
+        return(
+            <View style={styles.container}>
+                <ActivityIndicator
+                    animating={true}
+                    color="#aa3300"
+                    size={'large'}
+                />
+                <Text style={styles.text}>Loading</Text>
             </View>
-        );
+        )
     }
 }
+const styles = StyleSheet.create({
+    container:{
+        alignItems:'center',
+        justifyContent:'center',
+        flex:1,
+        flexDirection:'column'
+    },
+    text:{
+        marginTop:10
+    }
+});
+function mapStateToProps(state) {
+    const {configData} = state.config;
+    return {configData}
+}
 
-export default WelcomePage;
+export default connect(mapStateToProps)(WelcomePage)
