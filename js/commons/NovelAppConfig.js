@@ -1,40 +1,44 @@
 /**
  * @author Semper
  */
-import {ThemeColors} from "./ThemeFactory";
-import {lineHeights, READER_SEX, readerColors, THEME_COLORS} from "../constants/constants";
+import {ThemeColors} from './ThemeFactory';
+import {
+  lineHeights,
+  READER_SEX,
+  readerColors,
+  THEME_COLORS,
+} from '../constants/constants';
 
 global.NovelAppConfig = {
-    themeColorName: THEME_COLORS.DARK,
-    appThemeColor: ThemeColors.pinkColors,
-    isFirstOpen: true,
-    isFirstShow:true,
-    readerSex: READER_SEX.FEMALE,
-    notificationTime: null,
-    isTraditional: false,
-    lastShowAdTime:0,
-    isFastest:true,
-    user:{username:null,password:null},
-    readConfig: {
-        bgColor: '#fff',
-        fontSize: 20,
-        fontColor: '#000',
-        isNightMode: false,
-        darkFontColor: '#343434',
-        darkBgColor: '#000',
-        index:0,
-        lineHeight:lineHeights[0],
-        lHIndex:0
-
-    },
-    readerColor:readerColors[0],
-    isKeepAwake:true,
-    isOpenVoice:false,
-    baiduVoiceTok:'',
-    textHeightData:[],
-    deviceName:'',
-    codeVersion:1,
-    /*voiceConfig: {
+  themeColorName: THEME_COLORS.DARK,
+  appThemeColor: ThemeColors.pinkColors,
+  isFirstOpen: true,
+  isFirstShow: true,
+  readerSex: READER_SEX.FEMALE,
+  notificationTime: null,
+  isTraditional: false,
+  lastShowAdTime: 0,
+  isFastest: true,
+  user: {username: null, password: null},
+  readConfig: {
+    bgColor: '#fff',
+    fontSize: 20,
+    fontColor: '#000',
+    isNightMode: false,
+    darkFontColor: '#343434',
+    darkBgColor: '#000',
+    index: 0,
+    lineHeight: lineHeights[0],
+    lHIndex: 0,
+  },
+  readerColor: readerColors[0],
+  isKeepAwake: true,
+  isOpenVoice: false,
+  baiduVoiceTok: '',
+  textHeightData: [],
+  deviceName: '',
+  codeVersion: 1,
+  /*voiceConfig: {
         //是否打开语音阅读
         isOpenVoice:false,
         //语速，取值0-15，默认为5中语速
@@ -51,11 +55,11 @@ global.NovelAppConfig = {
     }*/
 };
 
-global.globalData={
-    globalBookNameParam:null,
-    globalCurrentChapterNum:null,
-    globalPageNum:null,
-    cacheChapterCount:0,
-    catalog:null,
-    currentSiteName:null
-}
+global.globalData = {
+  globalBookNameParam: null,
+  globalCurrentChapterNum: null,
+  globalPageNum: null,
+  cacheChapterCount: 0,
+  catalog: null,
+  currentSiteName: null,
+};

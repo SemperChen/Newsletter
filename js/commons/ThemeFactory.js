@@ -1,25 +1,25 @@
 /**
  * @author Semper
  */
-import {StyleSheet} from 'react-native'
+import {StyleSheet} from 'react-native';
 
 export const ThemeColors = {
-    darkColors: {
-        primary: 'rgb(69,163,63)',
-        dark: 'rgb(69,163,63)',
-        light: '#99979c',
-        grayLight: '#99979c',
-        borderColor: '#eee',
-    },
-    pinkColors: {
-        primary: 'rgb(69,163,63)',
-        dark: 'rgb(69,163,63)',
-        light: '#99979c',
-        grayLight: '#99979c',
-        borderColor: '#eee',
-    },
+  darkColors: {
+    primary: 'rgb(69,163,63)',
+    dark: 'rgb(69,163,63)',
+    light: '#99979c',
+    grayLight: '#99979c',
+    borderColor: '#eee',
+  },
+  pinkColors: {
+    primary: 'rgb(69,163,63)',
+    dark: 'rgb(69,163,63)',
+    light: '#99979c',
+    grayLight: '#99979c',
+    borderColor: '#eee',
+  },
 
-    /*color: {
+  /*color: {
         white: '#fff',
         black: '#000',
         red: '#d9534f',
@@ -33,37 +33,35 @@ export const ThemeColors = {
     }*/
 };
 export default function createTheme(themeColor = ThemeColors.darkColors) {
-    return {
-        primaryColor: themeColor.primary,
-        darkColor: themeColor.dark,
-        lightColor: themeColor.light,
-        styles: StyleSheet.create({
-            fontColorGrayLight: {
-                color: themeColor.grayLight
-            },
-            primaryBgColor: {
-                backgroundColor: themeColor.primary
-            },
-            primaryColor: {
-                color: themeColor.primary
-            },
-            darkBgColor: {
-                backgroundColor: themeColor.dark
-            },
-            darkColor: {
-                color: themeColor.dark
-            },
-            lightBgColor: {
-                backgroundColor: themeColor.light
-            },
-            lightColor: {
-                color: themeColor.light
-            },
-            borderColor: {
-                borderColor: themeColor.borderColor
-            }
-
-        })
-    }
+  return {
+    primaryColor: themeColor.primary,
+    darkColor: themeColor.dark,
+    lightColor: themeColor.light,
+    styles: StyleSheet.create({
+      fontColorGrayLight: {
+        color: themeColor.grayLight,
+      },
+      primaryBgColor: {
+        backgroundColor: themeColor.primary,
+      },
+      primaryColor: {
+        color: themeColor.primary,
+      },
+      darkBgColor: {
+        backgroundColor: themeColor.dark,
+      },
+      darkColor: {
+        color: themeColor.dark,
+      },
+      lightBgColor: {
+        backgroundColor: themeColor.light,
+      },
+      lightColor: {
+        color: themeColor.light,
+      },
+      borderColor: {
+        borderColor: themeColor.borderColor,
+      },
+    }),
+  };
 }
-
