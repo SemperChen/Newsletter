@@ -4,16 +4,16 @@
 import React from "react";
 import {FlatList, InteractionManager, RefreshControl, StyleSheet, Text, View} from "react-native";
 import {connect} from "react-redux";
-import {requestRankingDetail} from "../actions/rankingDetail";
-import {RANKING_TYPE, RefreshControlColor} from "../constants/constants";
-import BookItem from "../commons/novel/BookItem";
-import I18n from "../i18n/i18n";
+import BookItem from "../../commons/novel/BookItem";
+import {RANKING_TYPE, RefreshControlColor} from "../../constants/constants";
+import {requestRankingDetail} from "../../actions/rankingDetail";
+import I18n from "../../i18n/i18n";
 
-class MonthRanking extends React.Component {
+class TotalRanking extends React.Component {
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.props.dispatch(requestRankingDetail(this.props.monthRankUrl, RANKING_TYPE.MONTH));
+            this.props.dispatch(requestRankingDetail(this.props.totalRankUrl, RANKING_TYPE.TOTAL));
         });
     }
 
@@ -24,8 +24,8 @@ class MonthRanking extends React.Component {
     };
 
     render() {
-        if (this.props.monthRankingData) {
-            this.ranking = this.props.monthRankingData.ranking.books;
+        if (this.props.totalRankingData) {
+            this.ranking = this.props.totalRankingData.ranking.books;
         }
         return (
             <View>
@@ -33,7 +33,7 @@ class MonthRanking extends React.Component {
                     <FlatList
                         refreshControl={
                             <RefreshControl
-                                refreshing={this.props.isFetchingMonthRanking}
+                                refreshing={this.props.isFetchingTotalRanking}
                                 onRefresh={() => {
                                 }}
                                 tintColor={RefreshControlColor.tintColor}
@@ -75,8 +75,8 @@ class MonthRanking extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const {monthRankingData, isFetchingMonthRanking} = state.rankingDetail;
-    return {monthRankingData, isFetchingMonthRanking}
+    const {totalRankingData, isFetchingTotalRanking} = state.rankingDetail;
+    return {totalRankingData, isFetchingTotalRanking}
 }
 
-export default connect(mapStateToProps)(MonthRanking)
+export default connect(mapStateToProps)(TotalRanking)

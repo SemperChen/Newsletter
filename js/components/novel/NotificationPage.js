@@ -1,9 +1,9 @@
 import React from "react";
 import {Button, Linking, StyleSheet, Text, View} from "react-native";
 import {connect} from "react-redux";
-import {getNotification} from "../utils/ParseHtmlUtil";
-import {getChineseText} from "../utils/LanguageUtil";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
+import {getNotification} from "../../utils/ParseHtmlUtil";
+import {getChineseText} from "../../utils/LanguageUtil";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
 
 class NotificationPage extends React.Component {
 

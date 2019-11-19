@@ -8,23 +8,23 @@ import {
 } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {connect} from "react-redux";
-import {requestRankings} from "../actions/rankings";
-import {RANKING_BASE_URL, RANKINGS_URL, SPREAD_URL} from "../constants/api";
-import HotRecommend from "../commons/novel/HotRecommend";
-import BestEndBooks from "../commons/novel/BestEndBooks";
-import EditorRecommend from "../commons/novel/EditorRecommend";
-import ImageCarousel from "../commons/novel/ImageCarousel";
-import {requestSpread} from "../actions/spread";
-import {Rankings} from "../model/Rankings";
-import {requestHotRec} from "../actions/hotRec";
-import {requestBestEnd} from "../actions/bestEnd";
-import {requestEditorRec} from "../actions/editorRec";
-import {READER_SEX, RefreshControlColor, TAB_ICON_SIZE} from "../constants/constants";
-import GuessYouLike from "../commons/novel/GuessYouLike";
-import {requestGuessYouLike} from "../actions/guessYouLike";
-import HotSearch from "../commons/novel/HotSearch";
-import {requestHotSearch} from "../actions/hotSearch";
-import I18n from "../i18n/i18n";
+import {requestRankings} from "../../actions/rankings";
+import {RANKING_BASE_URL, RANKINGS_URL, SPREAD_URL} from "../../constants/api";
+import HotRecommend from "../../commons/novel/HotRecommend";
+import BestEndBooks from "../../commons/novel/BestEndBooks";
+import EditorRecommend from "../../commons/novel/EditorRecommend";
+import ImageCarousel from "../../commons/novel/ImageCarousel";
+import {requestSpread} from "../../actions/spread";
+import {Rankings} from "../../model/Rankings";
+import {requestHotRec} from "../../actions/hotRec";
+import {requestBestEnd} from "../../actions/bestEnd";
+import {requestEditorRec} from "../../actions/editorRec";
+import {READER_SEX, RefreshControlColor, TAB_ICON_SIZE} from "../../constants/constants";
+import GuessYouLike from "../../commons/novel/GuessYouLike";
+import {requestGuessYouLike} from "../../actions/guessYouLike";
+import HotSearch from "../../commons/novel/HotSearch";
+import {requestHotSearch} from "../../actions/hotSearch";
+import I18n from "../../i18n/i18n";
 
 class Bookstore extends React.Component {
 

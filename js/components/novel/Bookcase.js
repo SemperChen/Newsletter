@@ -5,16 +5,16 @@ import React from 'react';
 import {Alert, ScrollView, StatusBar, StyleSheet, Text, View, Platform, ToastAndroid, TouchableOpacity} from "react-native";
 import {connect} from "react-redux";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import BookmarkComponent from "../commons/novel/BookmarkComponent";
-import {requestBookmarks} from "../actions/bookmarks";
-import {WIDTH} from "../utils/DimensionsUtil";
-import {CACHE_DIR_PATH, TAB_ICON_SIZE} from "../constants/constants";
-import {removeBookmark, removeCatalog, sortBy} from "../utils/BookmarkUtil";
-import I18n from '../i18n/i18n';
+import BookmarkComponent from "../../commons/novel/BookmarkComponent";
+import {requestBookmarks} from "../../actions/bookmarks";
+import {WIDTH} from "../../utils/DimensionsUtil";
+import {CACHE_DIR_PATH, TAB_ICON_SIZE} from "../../constants/constants";
+import {removeBookmark, removeCatalog, sortBy} from "../../utils/BookmarkUtil";
+import I18n from '../../i18n/i18n';
 import RNFS from "react-native-fs";
-import ToastUtil from "../utils/ToastUtil";
+import ToastUtil from "../../utils/ToastUtil";
 import codePush from "react-native-code-push";
-import {saveAppConfig} from "../utils/ConfigUtil";
+import {saveAppConfig} from "../../utils/ConfigUtil";
 import FastImage from "react-native-fast-image";
 
 class Bookcase extends React.Component {

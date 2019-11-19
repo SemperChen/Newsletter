@@ -1,8 +1,8 @@
 import React from "react";
 import {StatusBar, StyleSheet, Text, View} from "react-native";
 import {NavigationActions, StackActions} from "react-navigation";
-import {HEIGHT} from "../utils/DimensionsUtil";
-import MeasureText from "../commons/novel/MeasureText";
+import {HEIGHT} from "../../utils/DimensionsUtil";
+import MeasureText from "../../commons/novel/MeasureText";
 import FastImage from "react-native-fast-image";
 class SplashPage extends React.Component{
 
@@ -66,7 +66,7 @@ class SplashPage extends React.Component{
                     />:null}
                 <FastImage
                     style={{width: '100%',resizeMode: 'contain'}}
-                    source={require('../../data/splash.png')}/>
+                    source={require('../../../data/splash.png')}/>
             </View>
         )
     }

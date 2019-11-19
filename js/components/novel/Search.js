@@ -9,58 +9,48 @@ import {
     ScrollView,
     StyleSheet,
     Text,
+    TextInput,
     TouchableHighlight,
     View
 } from "react-native";
-import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH, WIDTH} from "../utils/DimensionsUtil";
+import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH, WIDTH} from "../../utils/DimensionsUtil";
 import {connect} from "react-redux";
-import {requestSearch} from "../actions/search";
-import ToastUtil from "../utils/ToastUtil";
-import {getOtherSearchBookInfo} from "../utils/ParseHtmlUtil";
+import {requestSearch} from "../../actions/search";
+import {getOtherSearchBookInfo, getSearchBook} from "../../utils/ParseHtmlUtil";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import {BookInfo} from "../model/BookInfo";
-import {ZSSQ_SEARCH} from "../constants/api";
-import {requestOtherSearch} from "../actions/otherSearch";
-import I18n from "../i18n/i18n";
-import {getChineseText, Simplified} from "../utils/LanguageUtil";
-import FastImage from "react-native-fast-image";
+import {OTHER_SEARCH_URLS, ZSSQ_SEARCH} from "../../constants/api";
+import {requestOtherSearch} from "../../actions/otherSearch";
+import I18n from "../../i18n/i18n";
+import {getChineseText, Simplified} from "../../utils/LanguageUtil";
+import ToastUtil from "../../utils/ToastUtil";
+import FastImage from "react-native-fast-image/src/index";
 
 const _uniq = require("lodash/uniq");
-class BookSources extends React.Component {
+class Search extends React.Component {
 
     static navigationOptions = ({screenProps}) => {
         return {
-            headerTitle: '书源',
+            headerTitle: I18n.t('search'),
             headerStyle: {elevation: 0, backgroundColor: screenProps.appTheme.primaryColor},
             headerTintColor: '#fff'
         }
     };
 
     searchBookName = '';
-    bookInfo: BookInfo;
 
     constructor(props) {
         super(props);
         this.otherBookInfos = [];
-        this.state = {res: '', searchBookName: ''}
-    }
-
-    componentWillMount(){
-
-
+        this.state = {res: '', searchBookName: ''};
+        this.siteNames = [];
+        this.isSearched = false;
     }
 
     componentDidMount() {
-        const params = this.props.navigation.state.params;
-        this.changeBookSource = params.changeBookSource;
         if (globalData.globalBookNameParam) {
             this.searchBookName = globalData.globalBookNameParam;
             this._searchBook();
             globalData.globalBookNameParam = null;
-        }
-        if(globalData.currentSiteName){
-            this.siteName = globalData.currentSiteName;
-            globalData.currentSiteName = null
         }
     }
 
@@ -69,19 +59,21 @@ class BookSources extends React.Component {
     }
 
     shouldComponentUpdate(nextProps) {
+        if (nextProps.siteName) {
+            this.siteNames.push(nextProps.siteName);
+            let siteNames = _uniq(this.siteNames);
+            if (siteNames.length === OTHER_SEARCH_URLS.length) {
+                this.requestEnd = true;
+                this.siteNames = []
+                // return true
+            }
+        }
         return this.props.searchResult !== nextProps.searchResult ||
             this.props.baseSearchUrl !== nextProps.baseSearchUrl ||
             this.props.otherSearchResult !== nextProps.otherSearchResult ||
             this.props.baseOtherSearchUrl !== nextProps.baseOtherSearchUrl ||
             this.props.siteName !== nextProps.siteName
 
-    }
-
-    componentWillUpdate() {
-    }
-
-    componentWillUnmount() {
-        // this.props.dispatch(quitSearchPage(this.mainSearchRes, this.mainUrl))
     }
 
     _searchBook = () => {
@@ -92,6 +84,9 @@ class BookSources extends React.Component {
                 // if (NovelAppConfig.isTraditional) {
                 //     this.searchBookName = Simplified(this.searchBookName)
                 // }
+                this.requestEnd = false;
+                this.siteName = [];
+                this.isSearched = true;
                 this.searchBookName = Simplified(this.searchBookName);
                 // console.log('this.searchBookName--',this.searchBookName,NovelAppConfig.isTraditional)
                 this.props.dispatch(requestSearch(ZSSQ_SEARCH + this.searchBookName));
@@ -101,13 +96,6 @@ class BookSources extends React.Component {
         } catch (e) {
             console.warn('Search _searchBook', e.message)
         }
-    };
-
-    _navBookDetail = (bookId, siteName) => {
-        this.props.navigation.navigate('BookDetail', {
-            bookId: bookId,
-            siteName: siteName
-        })
     };
 
     _navToReader = (articleUrlTag, bookName, image, siteName, bookId, author) => {
@@ -121,39 +109,45 @@ class BookSources extends React.Component {
         })
     };
 
-    navToReaderWithBookmark = (bookmark) => {
-        this.props.navigation.navigate('Read', {bookmark: bookmark})
-    };
-
     render() {
 
         try {
             const appTheme = this.props.screenProps.appTheme;
             // console.log(this.props.searchResult);
             if (this.props.otherSearchResult) {
+                let r = getSearchBook(this.props.otherSearchResult)
                 let result = getOtherSearchBookInfo(this.props.otherSearchResult,this.props.siteName)
                 // this.otherBookInfo = getSearchBookInfoByParseHtml(this.props.otherSearchResult);
-                for(let i = 0;i<result.length;i++){
-                    if(result[i].title === this.searchBookName){
-                        this.otherBookInfos.push(result[i])
-                    }
+                // console.log("r",r)
+                // console.log("result",result)
+
+                if (result&&result.length>0) {
+                    this.otherBookInfos.push(...result)
                 }
             }
 
             return (
                 <ScrollView>
+                    {this._renderSearchInput(appTheme.primaryColor)}
                     {this.otherBookInfos.length > 0
                         ?
                         this._renderOtherSearch(appTheme)
                         :
-                        <View style={{marginTop: 10, justifyContent: 'center', alignItems: 'center'}}>
-                            <ActivityIndicator
-                                animating={true}
-                                color={appTheme.primaryColor}
-                                size="small"
-                            />
-                            <Text style={{color: appTheme.primaryColor}}>加载中，请稍等</Text>
-                        </View>}
+                        this.requestEnd
+                            ?
+                            <Text style={{alignSelf: "center",marginTop:20}}>未找到该书</Text>
+                            :
+                            this.isSearched?
+                                <View style={{marginTop: 10, justifyContent: 'center', alignItems: 'center'}}>
+                                    <ActivityIndicator
+                                        animating={true}
+                                        color={appTheme.primaryColor}
+                                        size="small"
+                                    />
+                                    <Text style={{color: appTheme.primaryColor}}>搜索中，请稍等</Text>
+                                </View>:null
+                    }
+
                 </ScrollView>
             )
         } catch (e) {
@@ -162,20 +156,45 @@ class BookSources extends React.Component {
     }
 
     formatText = (text) => {
+
         return getChineseText(text)
+    };
+
+    _renderSearchInput = (color) => {
+        return (
+            <View style={styles.searchContainer}>
+                <TextInput
+                    // autoFocus={true}
+                    style={{width: WIDTH * 0.8,height:40,borderWidth: 1,borderColor:'#ddd',borderRadius:10,paddingLeft: 5}}
+                    placeholder={I18n.t('bookName')}
+                    placeholderTextColor="#ddd"
+                    clearTextOnFocus={true}
+                    clearButtonMode="while-editing"
+                    returnKeyType='search'
+                    onSubmitEditing={() => {
+                        if (this.searchBookName && this.searchBookName !== '' && this.searchBookName !== undefined) {
+                            this._searchBook()
+                        }
+                    }}
+                    onChangeText={(searchBookName) => this.setSearchBookName(searchBookName)}
+                />
+                <Button
+                    title={I18n.t('search')}
+                    color={color}
+                    onPress={this._searchBook}/>
+            </View>
+        )
     };
 
     _renderOtherSearch = (appTheme) => {
         return (
             <View style={styles.otherSearchItem}>
-                <Text style={{fontSize: 18,paddingHorizontal:20,paddingVertical:5}}>当前书源：{this.siteName}</Text>
                 {this.otherBookInfos.map((item, index) => {
                     return (
                         <TouchableHighlight key={index}
                                             underlayColor="#fff"
                                             onPress={() => {
-                                                this.changeBookSource(item.articleUrlTag, item.title, item.img, item.siteName,null,item.author);
-                                                this.props.navigation.goBack(null)
+                                                this._navToReader(item.articleUrlTag, item.title, item.img, item.siteName,null,item.author);
                                             }}>
                             <View>
                                 <View style={styles.itemContent}>
@@ -205,20 +224,6 @@ class BookSources extends React.Component {
                         </TouchableHighlight>
                     )
                 })}
-                {
-                    this.searchBookName
-                        ?
-                        <View style={{margin: 10}}>
-                            <Button
-                                title="刷新"
-                                color={appTheme.darkColor}
-                                onPress={() => {
-                                    this._searchBook()
-                                }}
-                            />
-                        </View>
-                        : null
-                }
             </View>
         )
     };
@@ -309,4 +314,4 @@ function mapStateToProps(state) {
     return {otherSearchResult, baseOtherSearchUrl, siteName}
 }
 
-export default connect(mapStateToProps)(BookSources)
+export default connect(mapStateToProps)(Search)

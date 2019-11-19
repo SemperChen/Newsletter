@@ -4,10 +4,10 @@
 import React from 'react';
 import {InteractionManager, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
-import {RANKINGS_URL, ZSSQ_IMG_URL} from "../constants/api";
-import {requestRankings} from "../actions/rankings";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
+import {RANKINGS_URL, ZSSQ_IMG_URL} from "../../constants/api";
+import {requestRankings} from "../../actions/rankings";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
 import FastImage from "react-native-fast-image";
 
 class RankingsPage extends React.Component {
@@ -59,7 +59,7 @@ class RankingsPage extends React.Component {
                                                 ?
                                                 {uri: ZSSQ_IMG_URL + item.cover}
                                                 :
-                                                require('../../data/img/collapse.png')}
+                                                require('../../../data/img/collapse.png')}
                                             style={styles.itemImg}/>
                                         <Text style={styles.itemText}>{getChineseText(item.title)}</Text>
                                     </View>
@@ -81,7 +81,7 @@ class RankingsPage extends React.Component {
                                                 ?
                                                 {uri: ZSSQ_IMG_URL + item.cover}
                                                 :
-                                                require('../../data/img/collapse.png')}
+                                                require('../../../data/img/collapse.png')}
                                             style={styles.itemImg}/>
                                         <Text style={styles.itemText}>{getChineseText(item.title)}</Text>
                                     </View>

@@ -4,14 +4,14 @@
 import React from "react";
 import {InteractionManager, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
-import {requestCategory} from "../actions/category";
-import {CATEGORY_LV2_URL} from "../constants/api";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
-import I18n from "../i18n/i18n";
-import {TAB_ICON_SIZE} from "../constants/constants";
+import {requestCategory} from "../../actions/category";
+import {CATEGORY_LV2_URL} from "../../constants/api";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import I18n from "../../i18n/i18n";
+import {TAB_ICON_SIZE} from "../../constants/constants";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import {getChineseText} from "../utils/LanguageUtil";
-import FastImage from "react-native-fast-image";
+import {getChineseText} from "../../utils/LanguageUtil";
+import FastImage from "react-native-fast-image/src/index";
 
 const leftView = WIDTH / 6;
 const categoryItemMargin = WIDTH / 10;
@@ -20,34 +20,34 @@ const categoryItemHeight = categoryItemWidth / 2.3;
 const searchContainer = HEIGHT / 7;
 const IMAGES = {
     male:[
-        require('../../data/img/1.jpg'),
-        require('../../data/img/2.jpg'),
-        require('../../data/img/3.jpg'),
-        require('../../data/img/4.jpg'),
-        require('../../data/img/5.jpg'),
-        require('../../data/img/6.jpg'),
-        require('../../data/img/7.jpg'),
-        require('../../data/img/8.jpg'),
-        require('../../data/img/9.jpg'),
-        require('../../data/img/10.jpg'),
-        require('../../data/img/11.jpg'),
-        require('../../data/img/12.jpg'),
-        require('../../data/img/13.jpg'),
-        require('../../data/img/14.jpg'),
+        require('../../../data/img/1.jpg'),
+        require('../../../data/img/2.jpg'),
+        require('../../../data/img/3.jpg'),
+        require('../../../data/img/4.jpg'),
+        require('../../../data/img/5.jpg'),
+        require('../../../data/img/6.jpg'),
+        require('../../../data/img/7.jpg'),
+        require('../../../data/img/8.jpg'),
+        require('../../../data/img/9.jpg'),
+        require('../../../data/img/10.jpg'),
+        require('../../../data/img/11.jpg'),
+        require('../../../data/img/12.jpg'),
+        require('../../../data/img/13.jpg'),
+        require('../../../data/img/14.jpg'),
     ],
     female:[
-        require('../../data/img/15.jpg'),
-        require('../../data/img/16.jpg'),
-        require('../../data/img/17.jpg'),
-        require('../../data/img/18.jpg'),
-        require('../../data/img/19.jpg'),
-        require('../../data/img/20.jpg'),
-        require('../../data/img/21.jpg'),
-        require('../../data/img/22.jpg'),
-        require('../../data/img/23.jpg'),
-        require('../../data/img/24.jpg'),
-        require('../../data/img/25.jpg'),
-        require('../../data/img/26.jpg'),
+        require('../../../data/img/15.jpg'),
+        require('../../../data/img/16.jpg'),
+        require('../../../data/img/17.jpg'),
+        require('../../../data/img/18.jpg'),
+        require('../../../data/img/19.jpg'),
+        require('../../../data/img/20.jpg'),
+        require('../../../data/img/21.jpg'),
+        require('../../../data/img/22.jpg'),
+        require('../../../data/img/23.jpg'),
+        require('../../../data/img/24.jpg'),
+        require('../../../data/img/25.jpg'),
+        require('../../../data/img/26.jpg'),
     ]
 }
 class CategoryPage extends React.Component {

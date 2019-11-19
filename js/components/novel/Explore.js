@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {CACHE_DIR_PATH, READER_SEX, TAB_ICON_SIZE} from "../constants/constants";
+import {CACHE_DIR_PATH, READER_SEX, TAB_ICON_SIZE} from "../../constants/constants";
 import {
     DeviceEventEmitter,
     Linking,
@@ -16,12 +16,12 @@ import {
     View
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
-import {saveAppConfig} from "../utils/ConfigUtil";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import {saveAppConfig} from "../../utils/ConfigUtil";
 import RNFS from "react-native-fs";
-import ToastUtil from "../utils/ToastUtil";
+import ToastUtil from "../../utils/ToastUtil";
 
 class Explore extends React.Component {
 

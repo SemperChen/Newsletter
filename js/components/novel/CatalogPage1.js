@@ -3,10 +3,10 @@
  */
 import React from "react";
 import {Animated, FlatList, InteractionManager, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {createAnimation} from "../utils/AnimatedUtil";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
-import {getChineseText} from "../utils/LanguageUtil";
-import Loading from "../commons/Loading";
+import {createAnimation} from "../../utils/AnimatedUtil";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import {getChineseText} from "../../utils/LanguageUtil";
+import Loading from "../../commons/Loading";
 
 const itemHeight = 52;
 class CatalogPage1 extends React.Component {

@@ -3,12 +3,12 @@
  */
 import React from "react";
 import {DeviceEventEmitter, Modal, StyleSheet, Switch, Text, TouchableOpacity, View} from "react-native";
-import {CACHE_DIR_PATH, READER_SEX, THEME_COLORS} from "../constants/constants";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import {WIDTH} from "../utils/DimensionsUtil";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
-import ToastUtil from "../utils/ToastUtil";
+import {CACHE_DIR_PATH, READER_SEX, THEME_COLORS} from "../../constants/constants";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import {WIDTH} from "../../utils/DimensionsUtil";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
+import ToastUtil from "../../utils/ToastUtil";
 import RNFS from "react-native-fs";
 
 class SettingPage extends React.Component {

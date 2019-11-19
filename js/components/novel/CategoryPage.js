@@ -4,11 +4,11 @@
 import React from "react";
 import {InteractionManager, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
-import {requestCategory} from "../actions/category";
-import {CATEGORY_LV2_URL} from "../constants/api";
-import {WIDTH} from "../utils/DimensionsUtil";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
+import {requestCategory} from "../../actions/category";
+import {CATEGORY_LV2_URL} from "../../constants/api";
+import {WIDTH} from "../../utils/DimensionsUtil";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
 
 const categoryItemWidth = WIDTH / 4;
 const categoryItemHeight = categoryItemWidth / 2;

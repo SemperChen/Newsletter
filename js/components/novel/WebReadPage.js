@@ -4,9 +4,9 @@
 
 import React from "react";
 import {BackHandler, Platform, StatusBar, WebView} from "react-native";
-import Loading from "../commons/Loading";
-import {getChineseText} from "../utils/LanguageUtil";
-import ToastUtil from "../utils/ToastUtil";
+import Loading from "../../commons/Loading";
+import {getChineseText} from "../../utils/LanguageUtil";
+import ToastUtil from "../../utils/ToastUtil";
 
 class WebReadPage extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => {

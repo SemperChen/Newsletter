@@ -4,11 +4,11 @@
 import React from "react";
 import {ActivityIndicator, StatusBar, StyleSheet, Text, View} from "react-native";
 import {connect} from "react-redux";
-import {requestConfig} from "../actions/config";
+import {requestConfig} from "../../actions/config";
 import {getLanguages} from 'react-native-i18n'
-import {CHINESE_TYPE} from "../constants/constants";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import {HEIGHT} from "../utils/DimensionsUtil";
+import {CHINESE_TYPE} from "../../constants/constants";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import {HEIGHT} from "../../utils/DimensionsUtil";
 
 class WelcomePage extends React.Component {
     static navigationOptions = {

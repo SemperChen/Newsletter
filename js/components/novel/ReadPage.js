@@ -16,16 +16,16 @@ import {
     View
 } from "react-native";
 import {connect} from "react-redux";
-import {clearArticle, receiveArticle, requestArticle} from "../actions/read";
-import {getBookContentEXIAOSHUO1, getCatalog1, getCatalogEXIAOSHUO1, getContent1,} from "../utils/ParseHtmlUtil";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
-import ToastUtil from "../utils/ToastUtil";
+import {clearArticle, receiveArticle, requestArticle} from "../../actions/read";
+import {getBookContentEXIAOSHUO1, getCatalog1, getCatalogEXIAOSHUO1, getContent1,} from "../../utils/ParseHtmlUtil";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import ToastUtil from "../../utils/ToastUtil";
 import {NavigationActions, StackActions} from "react-navigation";
-import ReaderMenuHeader from "../commons/novel/ReaderMenuHeader";
-import ReaderMenuFooter from "../commons/novel/ReaderMenuFooter";
-import ReaderMenuProgress from "../commons/novel/ReaderMenuProgress";
-import CustomFlatList from "../commons/novel/CustomFlatList";
-import {Article} from "../model/Article";
+import ReaderMenuHeader from "../../commons/novel/ReaderMenuHeader";
+import ReaderMenuFooter from "../../commons/novel/ReaderMenuFooter";
+import ReaderMenuProgress from "../../commons/novel/ReaderMenuProgress";
+import CustomFlatList from "../../commons/novel/CustomFlatList";
+import {Article} from "../../model/Article";
 import {
     EXIAOSHUO1_BASE_URL,
     EXIAOSHUO1_NAME,
@@ -40,22 +40,22 @@ import {
     ZSSQ_CATALOG_BASE,
     ZSSQ_CHARTER_BASE,
     ZSSQ_NAME
-} from "../constants/api";
-import {Bookmark} from "../model/Bookmark";
-import {requestBookmarks} from "../actions/bookmarks";
-import {loadCatalog, removeCatalog, saveBookmark, saveCatalog} from "../utils/BookmarkUtil";
-import {clearCatalog, requestCatalog} from "../actions/catalog";
-import {CACHE_DIR_PATH, RECEIVE_TYPE, REQUEST_ARTICLE_FAILED, REQUEST_CATALOG_FAILED} from "../constants/constants";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
-import Loading from "../commons/Loading";
-import SaveBookContent from "../commons/novel/SaveBookContent";
+} from "../../constants/api";
+import {Bookmark} from "../../model/Bookmark";
+import {requestBookmarks} from "../../actions/bookmarks";
+import {loadCatalog, removeCatalog, saveBookmark, saveCatalog} from "../../utils/BookmarkUtil";
+import {clearCatalog, requestCatalog} from "../../actions/catalog";
+import {CACHE_DIR_PATH, RECEIVE_TYPE, REQUEST_ARTICLE_FAILED, REQUEST_CATALOG_FAILED} from "../../constants/constants";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
+import Loading from "../../commons/Loading";
+import SaveBookContent from "../../commons/novel/SaveBookContent";
 import RNFS from "react-native-fs";
 // import VoicePlayback from "../commons/VoicePlayback";
 import KeepAwake from "react-native-keep-awake";
-import MenuSet, {menuBgClr} from "../commons/novel/MenuSet";
-import {MAXH, reservedH} from "../commons/novel/MeasureText";
+import MenuSet, {menuBgClr} from "../../commons/novel/MenuSet";
+import {MAXH, reservedH} from "../../commons/novel/MeasureText";
 
 const _drop = require('lodash/drop');
 

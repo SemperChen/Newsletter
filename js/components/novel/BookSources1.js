@@ -4,15 +4,15 @@
 import React from "react";
 import {View} from "react-native";
 import {connect} from "react-redux";
-import {getOtherSearchBookInfo} from "../utils/ParseHtmlUtil";
-import {BOOKMARKS_URL, OTHER_SEARCH_URLS} from "../constants/api";
-import {requestOtherSearch} from "../actions/otherSearch";
-import I18n from "../i18n/i18n";
-import {Simplified} from "../utils/LanguageUtil";
-import type {Bookmarks} from "../model/Bookmark";
-import {saveBookmark} from "../utils/BookmarkUtil";
-import {requestBookmarks} from "../actions/bookmarks";
-import ToastUtil from "../utils/ToastUtil";
+import {getOtherSearchBookInfo} from "../../utils/ParseHtmlUtil";
+import {BOOKMARKS_URL, OTHER_SEARCH_URLS} from "../../constants/api";
+import {requestOtherSearch} from "../../actions/otherSearch";
+import I18n from "../../i18n/i18n";
+import {Simplified} from "../../utils/LanguageUtil";
+import type {Bookmarks} from "../../model/Bookmark";
+import {saveBookmark} from "../../utils/BookmarkUtil";
+import {requestBookmarks} from "../../actions/bookmarks";
+import ToastUtil from "../../utils/ToastUtil";
 
 const _sortedUniq = require("lodash/sortedUniq");
 

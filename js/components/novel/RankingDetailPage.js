@@ -6,8 +6,8 @@ import ScrollableTabView from "react-native-scrollable-tab-view";
 import WeekRanking from "./WeekRanking";
 import MonthRanking from "./MonthRanking";
 import TotalRanking from "./TotalRanking";
-import {RANKING_BASE_URL} from "../constants/api";
-import I18n from "../i18n/i18n";
+import {RANKING_BASE_URL} from "../../constants/api";
+import I18n from "../../i18n/i18n";
 import {StatusBar} from "react-native";
 
 class RankingDetailPage extends React.Component {

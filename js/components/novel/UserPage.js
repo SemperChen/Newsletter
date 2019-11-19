@@ -2,19 +2,19 @@
  * @author Semper
  */
 import React from "react";
-import I18n from "../i18n/i18n";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
+import I18n from "../../i18n/i18n";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
 import {ActivityIndicator, Button, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
-import {clearLogin, requestLogin} from "../actions/login";
-import {loginUrl, registerUrl, saveUrl} from "../constants/api";
-import ToastUtil from "../utils/ToastUtil";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import {saveBookmark} from "../utils/BookmarkUtil";
-import {requestBookmarks} from "../actions/bookmarks";
+import {clearLogin, requestLogin} from "../../actions/login";
+import {loginUrl, registerUrl, saveUrl} from "../../constants/api";
+import ToastUtil from "../../utils/ToastUtil";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import {saveBookmark} from "../../utils/BookmarkUtil";
+import {requestBookmarks} from "../../actions/bookmarks";
 import Icon from "react-native-vector-icons/Ionicons";
-import {getChineseText} from "../utils/LanguageUtil";
-import {REQUEST_NET_FAILED} from "../constants/constants";
+import {getChineseText} from "../../utils/LanguageUtil";
+import {REQUEST_NET_FAILED} from "../../constants/constants";
 
 class UserPage extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => {

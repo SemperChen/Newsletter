@@ -13,9 +13,9 @@ import {
     TouchableOpacity,
     View
 } from "react-native";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
-import Loading from "../commons/Loading";
-import {getChineseText} from "../utils/LanguageUtil";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import Loading from "../../commons/Loading";
+import {getChineseText} from "../../utils/LanguageUtil";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const itemHeight = 52;

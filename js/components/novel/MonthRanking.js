@@ -3,17 +3,17 @@
  */
 import React from "react";
 import {FlatList, InteractionManager, RefreshControl, StyleSheet, Text, View} from "react-native";
-import {clearRankingDetailCache, requestRankingDetail} from "../actions/rankingDetail";
 import {connect} from "react-redux";
-import {RANKING_TYPE, RefreshControlColor} from "../constants/constants";
-import BookItem from "../commons/novel/BookItem";
-import I18n from "../i18n/i18n";
+import {requestRankingDetail} from "../../actions/rankingDetail";
+import {RANKING_TYPE, RefreshControlColor} from "../../constants/constants";
+import BookItem from "../../commons/novel/BookItem";
+import I18n from "../../i18n/i18n";
 
-class WeekRanking extends React.Component {
+class MonthRanking extends React.Component {
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.props.dispatch(requestRankingDetail(this.props.weekRankUrl, RANKING_TYPE.WEEK));
+            this.props.dispatch(requestRankingDetail(this.props.monthRankUrl, RANKING_TYPE.MONTH));
         });
     }
 
@@ -23,13 +23,9 @@ class WeekRanking extends React.Component {
         })
     };
 
-    componentWillUnmount() {
-        this.props.dispatch(clearRankingDetailCache())
-    }
-
     render() {
-        if (this.props.weekRankingData) {
-            this.ranking = this.props.weekRankingData.ranking.books;
+        if (this.props.monthRankingData) {
+            this.ranking = this.props.monthRankingData.ranking.books;
         }
         return (
             <View>
@@ -37,7 +33,7 @@ class WeekRanking extends React.Component {
                     <FlatList
                         refreshControl={
                             <RefreshControl
-                                refreshing={this.props.isFetchingWeekRanking}
+                                refreshing={this.props.isFetchingMonthRanking}
                                 onRefresh={() => {
                                 }}
                                 tintColor={RefreshControlColor.tintColor}
@@ -79,8 +75,8 @@ class WeekRanking extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const {weekRankingData, isFetchingWeekRanking} = state.rankingDetail;
-    return {weekRankingData, isFetchingWeekRanking}
+    const {monthRankingData, isFetchingMonthRanking} = state.rankingDetail;
+    return {monthRankingData, isFetchingMonthRanking}
 }
 
-export default connect(mapStateToProps)(WeekRanking)
+export default connect(mapStateToProps)(MonthRanking)

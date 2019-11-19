@@ -9,7 +9,7 @@ import {clearDetail, requestDetail} from "../../actions/detail";
 import {requestBookmarks} from "../../actions/bookmarks";
 import {saveBookmark} from "../../utils/BookmarkUtil";
 import {getChineseText} from "../../utils/LanguageUtil";
-import BookSources1 from "../../components/BookSources1";
+import BookSources1 from "../../components/novel/BookSources1";
 import type {Bookmarks} from "../../model/Bookmark";
 import ToastUtil from "../../utils/ToastUtil";
 import FastImage from "react-native-fast-image/src/index";

@@ -4,11 +4,11 @@
 import React from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import {WIDTH} from "../utils/DimensionsUtil";
-import {READER_SEX, THEME_COLORS} from "../constants/constants";
+import {WIDTH} from "../../utils/DimensionsUtil";
+import {READER_SEX, THEME_COLORS} from "../../constants/constants";
 import {NavigationActions, StackActions} from "react-navigation";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import I18n from "../i18n/i18n";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import I18n from "../../i18n/i18n";
 
 class SelectSexPage extends React.Component {
     static navigationOptions = {

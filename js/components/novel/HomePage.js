@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {connect} from "react-redux";
-import {requestBookmarks} from "../actions/bookmarks";
+import {requestBookmarks} from "../../actions/bookmarks";
 
 class HomePage extends React.Component {
 
