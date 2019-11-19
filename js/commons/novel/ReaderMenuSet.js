@@ -4,12 +4,12 @@
 import React from "react";
 import {Slider, StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {WIDTH} from "../utils/DimensionsUtil";
-import {READ_BG_COLOR} from "../constants/constants";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import I18n from "../i18n/i18n";
-import ToastUtil from "../utils/ToastUtil";
-import {getChineseText} from "../utils/LanguageUtil";
+import {WIDTH} from "../../utils/DimensionsUtil";
+import {READ_BG_COLOR} from "../../constants/constants";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import I18n from "../../i18n/i18n";
+import ToastUtil from "../../utils/ToastUtil";
+import {getChineseText} from "../../utils/LanguageUtil";
 
 class ReaderMenuSet extends React.Component {
 

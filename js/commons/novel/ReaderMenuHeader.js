@@ -4,8 +4,8 @@
 import React from "react";
 import {Animated, Text, TouchableOpacity, View} from "react-native";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {createAnimation} from "../utils/AnimatedUtil";
-import I18n from "../i18n/i18n";
+import {createAnimation} from "../../utils/AnimatedUtil";
+import I18n from "../../i18n/i18n";
 
 class ReaderMenuHeader extends React.Component {
 

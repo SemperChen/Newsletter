@@ -3,12 +3,12 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ColorSwitchControl from "./ColorSwitchControl";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import I18n from "../i18n/i18n";
-import {lineHeights, maxFontSize, minFontSize} from "../constants/constants";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import I18n from "../../i18n/i18n";
+import {lineHeights, maxFontSize, minFontSize} from "../../constants/constants";
 
 
 export const menuBgClr = 'rgb(33,33,33)';

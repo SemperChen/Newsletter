@@ -1,9 +1,9 @@
 import React from "react";
 import {ActivityIndicator, FlatList, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
-import {Article} from "../model/Article";
-import I18n from "../i18n/i18n";
-import {getChineseText, Traditionalized} from "../utils/LanguageUtil";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import {Article} from "../../model/Article";
+import I18n from "../../i18n/i18n";
+import {getChineseText, Traditionalized} from "../../utils/LanguageUtil";
 
 const VIEWABILITY_CONFIG = {
     viewAreaCoveragePercentThreshold: 80,//item80%部分可见才视为可见

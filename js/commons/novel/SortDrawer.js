@@ -4,10 +4,10 @@
 import PropTypes from 'prop-types';
 import React from "react";
 import {Animated, InteractionManager, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {cateItemHeight, cateItemMargin, cateItemWidth, filterWidth, HEIGHT} from "../utils/DimensionsUtil";
-import {createAnimation} from "../utils/AnimatedUtil";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
+import {cateItemHeight, cateItemMargin, cateItemWidth, filterWidth, HEIGHT} from "../../utils/DimensionsUtil";
+import {createAnimation} from "../../utils/AnimatedUtil";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
 
 class SortDrawer extends React.Component {
 

@@ -3,7 +3,7 @@
  */
 import React from "react";
 import {Slider, Text, View,TouchableOpacity} from "react-native";
-import {WIDTH} from "../utils/DimensionsUtil";
+import {WIDTH} from "../../utils/DimensionsUtil";
 
 class ReaderMenuProgress extends React.Component {
 

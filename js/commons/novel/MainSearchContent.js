@@ -3,17 +3,17 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
-import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH} from "../utils/DimensionsUtil";
-import {BOOKMARKS_URL, ZSSQ_IMG_URL, ZSSQ_NAME} from "../constants/api";
+import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH} from "../../utils/DimensionsUtil";
+import {BOOKMARKS_URL, ZSSQ_IMG_URL, ZSSQ_NAME} from "../../constants/api";
 import ReadButton from "./ReadButton";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {connect} from "react-redux";
-import {Bookmark} from "../model/Bookmark";
-import {saveBookmark} from "../utils/BookmarkUtil";
-import {requestBookmarks} from "../actions/bookmarks";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
-import FastImage from "react-native-fast-image";
+import {Bookmark} from "../../model/Bookmark";
+import {saveBookmark} from "../../utils/BookmarkUtil";
+import {requestBookmarks} from "../../actions/bookmarks";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
+import FastImage from "react-native-fast-image/src/index";
 class MainSearchContent extends React.Component {
 
     componentDidMount() {

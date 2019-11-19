@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from "react";
 import {Text, TouchableOpacity} from "react-native";
-import {WIDTH} from "../utils/DimensionsUtil";
+import {WIDTH} from "../../utils/DimensionsUtil";
 
 class ReadButton extends React.Component {
 

@@ -3,9 +3,9 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
-import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH, WIDTH} from "../utils/DimensionsUtil";
-import {getChineseText} from "../utils/LanguageUtil";
-import FastImage from "react-native-fast-image";
+import {BOOKMARK_HEIGHT, BOOKMARK_WIDTH, WIDTH} from "../../utils/DimensionsUtil";
+import {getChineseText} from "../../utils/LanguageUtil";
+import FastImage from "react-native-fast-image/src/index";
 
 const BOOKMARK_MARGIN = WIDTH / 24;
 

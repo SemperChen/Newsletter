@@ -6,7 +6,7 @@ import {FlatList, InteractionManager, RefreshControl, StyleSheet, Text, View} fr
 import {clearRankingDetailCache, requestRankingDetail} from "../actions/rankingDetail";
 import {connect} from "react-redux";
 import {RANKING_TYPE, RefreshControlColor} from "../constants/constants";
-import BookItem from "../commons/BookItem";
+import BookItem from "../commons/novel/BookItem";
 import I18n from "../i18n/i18n";
 
 class WeekRanking extends React.Component {

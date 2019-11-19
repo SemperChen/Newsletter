@@ -4,11 +4,11 @@
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import ShadowImage from "./ShadowImage";
-import {ZSSQ_IMG_URL} from "../constants/api";
+import {ZSSQ_IMG_URL} from "../../constants/api";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import {IMG_MARGIN, WIDTH} from "../utils/DimensionsUtil";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
+import {IMG_MARGIN, WIDTH} from "../../utils/DimensionsUtil";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
 
 class BookItem extends React.Component {
     render() {

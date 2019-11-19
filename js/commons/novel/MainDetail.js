@@ -1,18 +1,18 @@
 import React from "react";
 import {ActivityIndicator, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {BOOK_DETAIL_BASE, BOOKMARKS_URL, ZSSQ_IMG_URL, ZSSQ_NAME} from "../constants/api";
-import I18n from "../i18n/i18n";
-import {WIDTH} from "../utils/DimensionsUtil";
+import {BOOK_DETAIL_BASE, BOOKMARKS_URL, ZSSQ_IMG_URL, ZSSQ_NAME} from "../../constants/api";
+import I18n from "../../i18n/i18n";
+import {WIDTH} from "../../utils/DimensionsUtil";
 import {connect} from "react-redux";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import {clearDetail, requestDetail} from "../actions/detail";
-import {requestBookmarks} from "../actions/bookmarks";
-import {saveBookmark} from "../utils/BookmarkUtil";
-import {getChineseText} from "../utils/LanguageUtil";
-import BookSources1 from "../components/BookSources1";
-import type {Bookmarks} from "../model/Bookmark";
-import ToastUtil from "../utils/ToastUtil";
-import FastImage from "react-native-fast-image";
+import {clearDetail, requestDetail} from "../../actions/detail";
+import {requestBookmarks} from "../../actions/bookmarks";
+import {saveBookmark} from "../../utils/BookmarkUtil";
+import {getChineseText} from "../../utils/LanguageUtil";
+import BookSources1 from "../../components/BookSources1";
+import type {Bookmarks} from "../../model/Bookmark";
+import ToastUtil from "../../utils/ToastUtil";
+import FastImage from "react-native-fast-image/src/index";
 
 class MainDetail extends React.PureComponent {
 

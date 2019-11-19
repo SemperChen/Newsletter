@@ -3,12 +3,11 @@
  */
 import React from "react";
 import {Text,Platform,ScrollView} from "react-native";
-import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
-import {lineHeights, maxFontSize, minFontSize} from "../constants/constants";
+import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import {lineHeights, maxFontSize, minFontSize} from "../../constants/constants";
 const WRAP = '我\n';
-import DeviceInfo from "react-native-device-info";
 
-export const reservedH = DeviceInfo.getModel().indexOf('iPhone X')!==-1?60:0;
+export const reservedH = 0;
 export const MAXH = HEIGHT-reservedH;
 class MeasureText extends React.Component {
     constructor() {
@@ -56,7 +55,6 @@ class MeasureText extends React.Component {
                             this.textHeight=[];
                         }else{
                             NovelAppConfig.textHeightData=this.textHeightData;
-                            NovelAppConfig.deviceName = DeviceInfo.getModel();
                             // saveAppConfig(NovelAppConfig);
                             // console.log('NovelAppConfig.textHeightData',NovelAppConfig.textHeightData);
                             // console.log('HEIGHT',HEIGHT)

@@ -4,7 +4,7 @@
 import React from "react";
 import {FlatList, InteractionManager, RefreshControl, StyleSheet, Text, View} from "react-native";
 import {connect} from "react-redux";
-import BookItem from "../commons/BookItem";
+import BookItem from "../commons/novel/BookItem";
 import {RANKING_TYPE, RefreshControlColor} from "../constants/constants";
 import {requestRankingDetail} from "../actions/rankingDetail";
 import I18n from "../i18n/i18n";

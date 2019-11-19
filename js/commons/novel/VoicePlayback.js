@@ -3,7 +3,7 @@
  */
 import React from "react";
 import Video from "react-native-video";
-import {checkLastPunctuationMark} from "../utils/FormatUtil";
+import {checkLastPunctuationMark} from "../../utils/FormatUtil";
 import {Platform} from "react-native";
 class VoicePlayback extends React.Component{
     constructor(){

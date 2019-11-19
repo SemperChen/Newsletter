@@ -2,7 +2,7 @@
  * @author Semper
  */
 import React from "react";
-import {IMG_MARGIN} from "../utils/DimensionsUtil";
+import {IMG_MARGIN} from "../../utils/DimensionsUtil";
 import {Text, View} from "react-native";
 
 class CardHeader extends React.Component {

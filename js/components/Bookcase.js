@@ -5,7 +5,7 @@ import React from 'react';
 import {Alert, ScrollView, StatusBar, StyleSheet, Text, View, Platform, ToastAndroid, TouchableOpacity} from "react-native";
 import {connect} from "react-redux";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import BookmarkComponent from "../commons/BookmarkComponent";
+import BookmarkComponent from "../commons/novel/BookmarkComponent";
 import {requestBookmarks} from "../actions/bookmarks";
 import {WIDTH} from "../utils/DimensionsUtil";
 import {CACHE_DIR_PATH, TAB_ICON_SIZE} from "../constants/constants";

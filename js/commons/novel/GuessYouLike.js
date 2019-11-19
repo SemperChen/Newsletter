@@ -3,14 +3,14 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
-import {IMG_MARGIN, IMG_WIDTH} from "../utils/DimensionsUtil";
-import {ZSSQ_IMG_URL} from "../constants/api";
+import {IMG_MARGIN, IMG_WIDTH} from "../../utils/DimensionsUtil";
+import {ZSSQ_IMG_URL} from "../../constants/api";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
 import ShadowImage from "./ShadowImage";
 import {connect} from "react-redux";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
+import I18n from "../../i18n/i18n";
+import {getChineseText} from "../../utils/LanguageUtil";
 
 const _chunk = require('lodash/chunk');
 

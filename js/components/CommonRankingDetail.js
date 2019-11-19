@@ -7,7 +7,7 @@ import {requestRankingDetail} from "../actions/rankingDetail";
 import {connect} from "react-redux";
 import {RANKING_BASE_URL} from "../constants/api";
 import {RANKING_TYPE, RefreshControlColor} from "../constants/constants";
-import BookItem from "../commons/BookItem";
+import BookItem from "../commons/novel/BookItem";
 import I18n from "../i18n/i18n";
 
 class CommonRankingDetail extends React.Component {

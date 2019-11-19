@@ -17,13 +17,13 @@ import {
     EXIAOSHUO5_NAME,
     ZSSQ_CHARTER_BASE,
     ZSSQ_NAME
-} from "../constants/api";
-import {CACHE_DIR_PATH, RECEIVE_TYPE, REQUEST_CACHE_FAILED} from "../constants/constants";
-import {requestBookCache} from "../actions/bookCache";
-import {WIDTH} from "../utils/DimensionsUtil";
-import {getChineseText} from "../utils/LanguageUtil";
+} from "../../constants/api";
+import {CACHE_DIR_PATH, RECEIVE_TYPE, REQUEST_CACHE_FAILED} from "../../constants/constants";
+import {requestBookCache} from "../../actions/bookCache";
+import {WIDTH} from "../../utils/DimensionsUtil";
+import {getChineseText} from "../../utils/LanguageUtil";
 import RNFS from "react-native-fs";
-import {saveCatalog} from "../utils/BookmarkUtil";
+import {saveCatalog} from "../../utils/BookmarkUtil";
 
 class SaveBookContent extends React.Component {
 

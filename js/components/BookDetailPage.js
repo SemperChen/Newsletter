@@ -3,11 +3,11 @@
  */
 import React from "react";
 import {ScrollView, View, SafeAreaView} from "react-native";
-import HotSimilar from "../commons/HotSimilar";
+import HotSimilar from "../commons/novel/HotSimilar";
 import I18n from "../i18n/i18n";
-import MainDetail from "../commons/MainDetail";
+import MainDetail from "../commons/novel/MainDetail";
 import {NavigationActions, StackActions} from "react-navigation";
-import ReadBtn from "../commons/ReadBtn";
+import ReadBtn from "../commons/novel/ReadBtn";
 import {WIDTH} from "../utils/DimensionsUtil";
 import type {Bookmarks} from "../model/Bookmark";
 import {saveBookmark} from "../utils/BookmarkUtil";

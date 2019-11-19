@@ -6,10 +6,10 @@ import {StyleSheet, View} from "react-native";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
 import {connect} from "react-redux";
-import Carousel from "./carousel/Carousel";
-import {IMG_MARGIN, WIDTH} from "../utils/DimensionsUtil";
+import Carousel from "../carousel/Carousel";
+import {IMG_MARGIN, WIDTH} from "../../utils/DimensionsUtil";
 import BookItem from "./BookItem";
-import I18n from "../i18n/i18n";
+import I18n from "../../i18n/i18n";
 
 const _chunk = require('lodash/chunk');
 

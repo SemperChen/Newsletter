@@ -21,10 +21,10 @@ import {getBookContentEXIAOSHUO1, getCatalog1, getCatalogEXIAOSHUO1, getContent1
 import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
 import ToastUtil from "../utils/ToastUtil";
 import {NavigationActions, StackActions} from "react-navigation";
-import ReaderMenuHeader from "../commons/ReaderMenuHeader";
-import ReaderMenuFooter from "../commons/ReaderMenuFooter";
-import ReaderMenuProgress from "../commons/ReaderMenuProgress";
-import CustomFlatList from "../commons/CustomFlatList";
+import ReaderMenuHeader from "../commons/novel/ReaderMenuHeader";
+import ReaderMenuFooter from "../commons/novel/ReaderMenuFooter";
+import ReaderMenuProgress from "../commons/novel/ReaderMenuProgress";
+import CustomFlatList from "../commons/novel/CustomFlatList";
 import {Article} from "../model/Article";
 import {
     EXIAOSHUO1_BASE_URL,
@@ -50,12 +50,12 @@ import {saveAppConfig} from "../utils/ConfigUtil";
 import I18n from "../i18n/i18n";
 import {getChineseText} from "../utils/LanguageUtil";
 import Loading from "../commons/Loading";
-import SaveBookContent from "../commons/SaveBookContent";
+import SaveBookContent from "../commons/novel/SaveBookContent";
 import RNFS from "react-native-fs";
 // import VoicePlayback from "../commons/VoicePlayback";
 import KeepAwake from "react-native-keep-awake";
-import MenuSet, {menuBgClr} from "../commons/MenuSet";
-import {MAXH, reservedH} from "../commons/MeasureText";
+import MenuSet, {menuBgClr} from "../commons/novel/MenuSet";
+import {MAXH, reservedH} from "../commons/novel/MeasureText";
 
 const _drop = require('lodash/drop');
 

@@ -5,13 +5,13 @@ import React from "react";
 import {Animated, FlatList, RefreshControl, StatusBar, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
 import {CATEGORY_BOOKS_URL} from "../constants/api";
-import BookItem from "../commons/BookItem";
+import BookItem from "../commons/novel/BookItem";
 import {clearBookCache, requestCategoryDetail} from "../actions/categoryDetail";
 import {filterWidth} from "../utils/DimensionsUtil";
 import Icon from "react-native-vector-icons/Ionicons";
 import {RefreshControlColor} from "../constants/constants";
 import Loading from "../commons/Loading";
-import SortDrawer from "../commons/SortDrawer";
+import SortDrawer from "../commons/novel/SortDrawer";
 import I18n from "../i18n/i18n";
 
 class CategoryDetailPage extends React.Component {

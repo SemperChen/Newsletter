@@ -4,9 +4,9 @@
 import React from "react";
 import {Animated, Text, TouchableOpacity, View} from "react-native";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {createAnimation} from "../utils/AnimatedUtil";
-import {saveAppConfig} from "../utils/ConfigUtil";
-import I18n from "../i18n/i18n";
+import {createAnimation} from "../../utils/AnimatedUtil";
+import {saveAppConfig} from "../../utils/ConfigUtil";
+import I18n from "../../i18n/i18n";
 
 class ReaderMenuFooter extends React.Component {
 

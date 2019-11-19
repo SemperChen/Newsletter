@@ -2,7 +2,7 @@ import React from "react";
 import {StatusBar, StyleSheet, Text, View} from "react-native";
 import {NavigationActions, StackActions} from "react-navigation";
 import {HEIGHT} from "../utils/DimensionsUtil";
-import MeasureText from "../commons/MeasureText";
+import MeasureText from "../commons/novel/MeasureText";
 import FastImage from "react-native-fast-image";
 class SplashPage extends React.Component{
 
@@ -51,7 +51,7 @@ class SplashPage extends React.Component{
         this.props.navigation.dispatch(StackActions.reset({
             index: 0,
             actions: [
-                NavigationActions.navigate({routeName: 'AddNews'})
+                NavigationActions.navigate({routeName: 'App'})
             ]
         }))
     };

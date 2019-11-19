@@ -3,7 +3,7 @@
  */
 import React from "react";
 import {Text, TouchableOpacity, View} from "react-native";
-import {WIDTH} from "../utils/DimensionsUtil";
+import {WIDTH} from "../../utils/DimensionsUtil";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class SetButton extends React.Component {

@@ -3,12 +3,12 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
-import Carousel from "./carousel/Carousel";
-import {WIDTH} from "../utils/DimensionsUtil";
+import Carousel from "../carousel/Carousel";
+import {WIDTH} from "../../utils/DimensionsUtil";
 import {connect} from "react-redux";
-import {SpreadData} from "../model/SpreadData";
-import {Spread} from "../model/Spread";
-import FastImage from "react-native-fast-image";
+import {SpreadData} from "../../model/SpreadData";
+import {Spread} from "../../model/Spread";
+import FastImage from "react-native-fast-image/src/index";
 
 class ImageCarousel extends React.Component {
 

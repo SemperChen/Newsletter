@@ -3,9 +3,9 @@
  */
 import React from "react";
 import {View, TouchableOpacity, Text} from "react-native";
-import {readerColors} from "../constants/constants";
-import {WIDTH} from "../utils/DimensionsUtil";
-import {saveAppConfig} from "../utils/ConfigUtil";
+import {readerColors} from "../../constants/constants";
+import {WIDTH} from "../../utils/DimensionsUtil";
+import {saveAppConfig} from "../../utils/ConfigUtil";
 export const btnSize = WIDTH/9;
 
 class ColorSwitchControl extends React.Component {

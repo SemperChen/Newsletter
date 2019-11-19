@@ -1,7 +1,7 @@
 /**
  * @author Semper
  */
-import {RECEIVE_BOOK_CACHE, REQUEST_BOOK_CACHE} from "../constants/ActionTypes";
+import {RECEIVE_BOOK_CACHE, REQUEST_BOOK_CACHE} from "../../constants/ActionTypes";
 
 export function requestBookCache(bookCacheUrl,receiveType) {
     return {

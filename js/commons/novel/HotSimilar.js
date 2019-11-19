@@ -3,26 +3,49 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
-import {IMG_MARGIN, IMG_WIDTH} from "../utils/DimensionsUtil";
-import {ZSSQ_IMG_URL} from "../constants/api";
+import {IMG_MARGIN, IMG_WIDTH} from "../../utils/DimensionsUtil";
+import {BOOK_DETAIL_BASE, ZSSQ_IMG_URL} from "../../constants/api";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
 import ShadowImage from "./ShadowImage";
 import {connect} from "react-redux";
-import I18n from "../i18n/i18n";
-import {getChineseText} from "../utils/LanguageUtil";
+import {requestHotSimilar} from "../../actions/hotSimilar";
+import I18n from "../../i18n/i18n";
+import {requestDetail} from "../../actions/detail";
+import {getChineseText} from "../../utils/LanguageUtil";
+import Loading from "../Loading";
+import {requestOtherSearch} from "../../actions/otherSearch";
 
 const _chunk = require('lodash/chunk');
 
-class HotRecommend extends React.Component {
+class HotSimilar extends React.Component {
 
     constructor() {
         super();
         this.books = [];
         this.data = [];
+        this.sex = 'male';
+        this.title = NovelAppConfig.readerSex + I18n.t('hotRead');
         this.state = {
             index: 0
         }
+    }
+
+    componentDidMount() {
+        if (NovelAppConfig.readerSex === '男生') {
+            this.sex = 'male';
+            this.major = '玄幻'
+        } else {
+            this.sex = 'female';
+            this.major = '古代言情'
+        }
+        let url = 'http://api.zhuishushenqi.com/book/by-categories?major=' +
+            this.major + '&start=0&gender=' + this.sex + '&type=hot';
+        this.props.dispatch(requestHotSimilar(url))
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.hotSimilarData !== nextProps.hotSimilarData || this.state.index !== nextState.index
     }
 
     nextPage = () => {
@@ -37,39 +60,38 @@ class HotRecommend extends React.Component {
         }
     };
 
-    shouldComponentUpdate(nextProps,nextState){
-        if (nextProps.hotRecData) {
-            try{
-                this.data = _chunk(nextProps.hotRecData.ranking.books, 8);
-                if(this.data.length > 1 ){
-                    if (nextState.index > this.data.length - 2) {
-                        this.books = this.data[0];
-                        this.setState({
-                            index: 0
-                        });
-                    } else {
-                        this.books = this.data[nextState.index];
-                    }
+    render() {
+        if (this.props.hotSimilarData) {
+            try {
+                this.data = _chunk(this.props.hotSimilarData.books, 8);
+                if (this.state.index > this.data.length - 2) {
+                    this.setState({
+                        index: 0
+                    });
+                    this.books = this.data[0];
+                } else {
+                    this.books = this.data[this.state.index];
                 }
-
-            }catch (e) {
-                console.warn('HotRecommend shouldComponentUpdate',e.message)
+            } catch (e) {
+                console.log('HotSimilar render func error' + e.message)
             }
 
         }
-        return this.props.hotRecData !== nextProps.hotRecData||this.state.index !== nextState.index
-    }
-
-    render() {
+        const appTheme = this.props.appTheme;
         return (
-            this.books&&this.books.length>0 ?
+            this.props.hotSimilarData && this.books ?
                 <View style={styles.container}>
-                    <CardHeader tagColor={this.props.appTheme.primaryColor} title={I18n.t('hotRec')}/>
-                    <View style={[styles.cardContent,]}>
+                    <CardHeader tagColor={appTheme.primaryColor} title={this.title}/>
+                    <View style={styles.cardContent}>
                         {this.books.map((item, index) => {
                             return (
                                 <TouchableHighlight key={index} underlayColor="#fff" onPress={() => {
-                                    this.props.navToDetail(item._id)
+                                    this.props.clearOtherBookInfo();
+                                    // this.props.dispatch(requestOtherSearch(item.title))
+                                    this.props.searchBook(item.title)
+                                    console.warn("item.title",item.title)
+                                    this.props.dispatch(requestDetail(BOOK_DETAIL_BASE + item._id));
+                                    this.props.scrollToTop()
                                 }}>
                                     <View>
                                         <ShadowImage source={{uri: ZSSQ_IMG_URL + item.cover}}/>
@@ -87,7 +109,11 @@ class HotRecommend extends React.Component {
                     <CardFooter onPress={() => {
                         this.nextPage()
                     }}/>
-                </View> : null
+                </View> :
+                <Loading
+                    size={'small'}
+                    animating={true}
+                />
         )
     }
 }
@@ -126,8 +152,8 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-    const {hotRecData} = state.hotRec;
-    return {hotRecData}
+    const {hotSimilarData,isFetching} = state.hotSimilar;
+    return {hotSimilarData,isFetching}
 }
 
-export default connect(mapStateToProps)(HotRecommend)
+export default connect(mapStateToProps)(HotSimilar)

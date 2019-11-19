@@ -3,7 +3,7 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight} from "react-native";
-import I18n from "../i18n/i18n";
+import I18n from "../../i18n/i18n";
 
 class CardFooter extends React.Component {
     render() {
