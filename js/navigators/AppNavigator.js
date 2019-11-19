@@ -23,6 +23,8 @@ import SplashPage from "../components/SplashPage";
 import CategoryPage1 from "../components/CategoryPage1";
 import BookSources from "../components/BookSources";
 import UserPage from "../components/UserPage";
+import AddNewsPage from "../components/AddNewsPage";
+import HomePage from "../components/news/HomePage";
 // Create our stack navigator
 
 const TabContainer = createBottomTabNavigator(
@@ -68,6 +70,8 @@ const TabContainer = createBottomTabNavigator(
 let RootStack = createStackNavigator({
     Welcome: {screen: WelcomePage},
     User: {screen: UserPage},
+    AddNews: {screen: AddNewsPage},
+    Home: {screen: HomePage},
     Splash: {screen: SplashPage},
     SelectSex: {screen: SelectSexPage},
     App: {screen: TabContainer,navigationOptions: ({navigation, screenProps}) => ({
