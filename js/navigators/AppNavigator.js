@@ -12,19 +12,19 @@ import RankingsPage from "../components/novel/RankingsPage";
 import CategoryPage from "../components/novel/CategoryPage";
 import CategoryDetailPage from "../components/novel/CategoryDetailPage";
 import SettingPage from "../components/novel/SettingPage";
-import WelcomePage from "../components/novel/WelcomePage";
+import WelcomePage from "../components/WelcomePage";
 import SelectSexPage from "../components/novel/SelectSexPage";
 import RankingDetailPage from "../components/novel/RankingDetailPage";
 import CommonRankingDetail from "../components/novel/CommonRankingDetail";
 import I18n from '../i18n/i18n';
 import NotificationPage from "../components/novel/NotificationPage";
 import WebReadPage from "../components/novel/WebReadPage";
-import SplashPage from "../components/novel/SplashPage";
+import SplashPage from "../components/SplashPage";
 import CategoryPage1 from "../components/novel/CategoryPage1";
 import BookSources from "../components/novel/BookSources";
 import UserPage from "../components/novel/UserPage";
 import AddNewsPage from "../components/AddNewsPage";
-import HomePage from "../components/news/HomePage";
+import HomePage from "../components/HomePage";
 // Create our stack navigator
 
 const TabContainer = createBottomTabNavigator(

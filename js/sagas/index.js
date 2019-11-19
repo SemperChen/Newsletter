@@ -1,23 +1,23 @@
-import {fetchBookmarks} from "./bookmarks";
-import {fetchSearchResult} from "./search";
-import {fetchCatalog} from "./catalog";
-import {fetchBookDetail} from "./detail";
-import {fetchSpread} from "./spread";
-import {fetchRankings} from "./rankings";
-import {fetchHotRec} from "./hotRec";
-import {fetchBestEnd} from "./bestEnd";
-import {fetchEditorRec} from "./editorRec";
-import {fetchRankingDetail} from "./rankingDetail";
-import {fetchCategory} from "./category";
-import {fetchBookContent} from "./read";
-import {fetchCategoryDetail} from "./categoryDetail";
-import {fetchConfig} from "./config";
-import {fetchGuessYouLike} from "./gussYouLike";
-import {fetchHotSearch} from "./hotSearch";
-import {watchEverySearch} from "./otherSearch";
-import {fetchHotSimilar} from "./hotSimilar";
-import {fetchNotification} from "./notification";
-import {login} from "./login";
+import {fetchBookmarks} from "./novel/bookmarks";
+import {fetchSearchResult} from "./novel/search";
+import {fetchCatalog} from "./novel/catalog";
+import {fetchBookDetail} from "./novel/detail";
+import {fetchSpread} from "./novel/spread";
+import {fetchRankings} from "./novel/rankings";
+import {fetchHotRec} from "./novel/hotRec";
+import {fetchBestEnd} from "./novel/bestEnd";
+import {fetchEditorRec} from "./novel/editorRec";
+import {fetchRankingDetail} from "./novel/rankingDetail";
+import {fetchCategory} from "./novel/category";
+import {fetchBookContent} from "./novel/read";
+import {fetchCategoryDetail} from "./novel/categoryDetail";
+import {fetchConfig} from "./novel/config";
+import {fetchGuessYouLike} from "./novel/gussYouLike";
+import {fetchHotSearch} from "./novel/hotSearch";
+import {watchEverySearch} from "./novel/otherSearch";
+import {fetchHotSimilar} from "./novel/hotSimilar";
+import {fetchNotification} from "./novel/notification";
+import {login} from "./novel/login";
 import {
     REQUEST_APP_CONFIG,
     REQUEST_ARTICLE,
@@ -43,8 +43,8 @@ import {
 } from '../constants/ActionTypes';
 import {takeLatestFetch} from '../utils/takeLatestFetch';
 import {all} from "redux-saga/effects";
-import {fetchBookCache} from "./bookCache";
-import {fetchCatalog2} from "./catalog2";
+import {fetchBookCache} from "./novel/bookCache";
+import {fetchCatalog2} from "./novel/catalog2";
 
 const rootSaga = function* root() {
     yield all([
