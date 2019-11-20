@@ -4,7 +4,7 @@
 import React from "react";
 import {StyleSheet, View} from "react-native";
 import {IMG_HEIGHT, IMG_MARGIN, IMG_WIDTH} from "../../utils/DimensionsUtil";
-import FastImage from "react-native-fast-image/src/index";
+import FastImage from "react-native-fast-image";
 
 class ShadowImage extends React.Component {
     render() {

@@ -28,43 +28,11 @@ import HomePage from "../components/HomePage";
 import HomePage2 from "../components/HomePage2";
 import HomePage3 from "../components/HomePage3";
 import HomePage1 from "../components/HomePage1";
-
-const TopTabNavigator = createMaterialTopTabNavigator({
-    topPage1: {
-        screen: HomePage,
-    },
-    topPage2: {
-        screen: HomePage1,
-    },
-    topPage3: {
-        screen: HomePage2,
-    },
-    topPage4:{
-        screen:HomePage3,
-    }
-}, {
-    tabBarPosition: 'top',       //标签栏在屏幕顶部还是底部
-    // swipeEnabled:true,           //是否可以滑动切换标签
-    // backBehavior:'none',         //andorid按下返回键将返回initalRouteName，如果设置非initalRouteName则直接结束标签导航
-    lazy: false,
-    //是否只渲染显示的标签
-    animationEnabled: true,         //标签切换是否有动画效果
-    tabBarOptions: {
-        activeTintColor: '#ffffff',  //标签栏激活字体颜色
-        inactiveTintColor: '#000000',//标签栏未激活字体颜色
-        showLabel: true,             //是否显示标签栏
-        labelStyle: {fontSize: 16},  //标签样式(可设置字体大小等)
-        showIcon: true,              //是否显示标签栏上图标
-        scrollEnabled: true,        //是否可以滚动标签栏目(当tab总数超过一屏)
-        indicatorStyle: {height: 1}, //指示器样式 height：0则不显示
-        style: {backgroundColor: '#31b3c0'}, //设置整个tabbar样式(背景颜色等)
-        // tabStyle:{backgroundColor:'#ffffff', height:50},//设置单个tabbar样式
-    }
-});
+import CommonListPage from "../components/CommonListPage";
 
 const TabContainer = createBottomTabNavigator(
     {
-        Bookcase: {screen: TopTabNavigator},
+        Bookcase: {screen: HomePage},
         Bookstore: {screen: Bookstore},
         Sort: {screen: CategoryPage1},
         Explore: {screen: Explore}
@@ -107,14 +75,15 @@ let RootStack = createStackNavigator({
     User: {screen: UserPage},
     AddNews: {screen: AddNewsPage},
     Home: {screen: HomePage},
+    Home1: {screen: HomePage1},
+    Home2: {screen: HomePage2},
+    Home3: {screen: HomePage3},
+
+    CommonList: {screen: CommonListPage},
+
     Splash: {screen: SplashPage},
     SelectSex: {screen: SelectSexPage},
-    App: {screen: TabContainer,navigationOptions: ({navigation, screenProps}) => ({
-            headerStyle: {backgroundColor: screenProps.appTheme.primaryColor,elevation: 0,borderBottomWidth:0},
-            headerTitle: I18n.t('magicalBookstore'),
-            headerTintColor: '#fff'
-        })},
-    TopTabNavigator:{screen:TopTabNavigator},
+    App: {screen: TabContainer,navigationOptions: {header:null}},
     Search: {screen: Search},
     Read: {screen: ReadPage,navigationOptions: {gesturesEnabled:false}},
     WebRead: {screen: WebReadPage},

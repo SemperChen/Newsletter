@@ -5,16 +5,16 @@ import {StyleSheet} from 'react-native'
 
 export const ThemeColors = {
     darkColors: {
-        primary: 'rgb(69,163,63)',
-        dark: 'rgb(69,163,63)',
-        light: '#99979c',
+        primary: '#262626',
+        dark: '#1a1a1a',
+        light: '#5b5b5b',
         grayLight: '#99979c',
         borderColor: '#eee',
     },
     pinkColors: {
-        primary: 'rgb(69,163,63)',
-        dark: 'rgb(69,163,63)',
-        light: '#99979c',
+        primary: '#ec407a',
+        dark: '#b4004e',
+        light: '#ff5c8d',
         grayLight: '#99979c',
         borderColor: '#eee',
     },
