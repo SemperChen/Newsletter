@@ -1,5 +1,5 @@
 import {createAppContainer} from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import {createBottomTabNavigator, createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
 import Bookcase from "../components/novel/Bookcase";
 import Bookstore from "../components/novel/Bookstore";
@@ -25,11 +25,46 @@ import BookSources from "../components/novel/BookSources";
 import UserPage from "../components/novel/UserPage";
 import AddNewsPage from "../components/AddNewsPage";
 import HomePage from "../components/HomePage";
-// Create our stack navigator
+import HomePage2 from "../components/HomePage2";
+import HomePage3 from "../components/HomePage3";
+import HomePage1 from "../components/HomePage1";
+
+const TopTabNavigator = createMaterialTopTabNavigator({
+    topPage1: {
+        screen: HomePage,
+    },
+    topPage2: {
+        screen: HomePage1,
+    },
+    topPage3: {
+        screen: HomePage2,
+    },
+    topPage4:{
+        screen:HomePage3,
+    }
+}, {
+    tabBarPosition: 'top',       //标签栏在屏幕顶部还是底部
+    // swipeEnabled:true,           //是否可以滑动切换标签
+    // backBehavior:'none',         //andorid按下返回键将返回initalRouteName，如果设置非initalRouteName则直接结束标签导航
+    lazy: false,
+    //是否只渲染显示的标签
+    animationEnabled: true,         //标签切换是否有动画效果
+    tabBarOptions: {
+        activeTintColor: '#ffffff',  //标签栏激活字体颜色
+        inactiveTintColor: '#000000',//标签栏未激活字体颜色
+        showLabel: true,             //是否显示标签栏
+        labelStyle: {fontSize: 16},  //标签样式(可设置字体大小等)
+        showIcon: true,              //是否显示标签栏上图标
+        scrollEnabled: true,        //是否可以滚动标签栏目(当tab总数超过一屏)
+        indicatorStyle: {height: 1}, //指示器样式 height：0则不显示
+        style: {backgroundColor: '#31b3c0'}, //设置整个tabbar样式(背景颜色等)
+        // tabStyle:{backgroundColor:'#ffffff', height:50},//设置单个tabbar样式
+    }
+});
 
 const TabContainer = createBottomTabNavigator(
     {
-        Bookcase: {screen: Bookcase},
+        Bookcase: {screen: TopTabNavigator},
         Bookstore: {screen: Bookstore},
         Sort: {screen: CategoryPage1},
         Explore: {screen: Explore}
@@ -79,6 +114,7 @@ let RootStack = createStackNavigator({
             headerTitle: I18n.t('magicalBookstore'),
             headerTintColor: '#fff'
         })},
+    TopTabNavigator:{screen:TopTabNavigator},
     Search: {screen: Search},
     Read: {screen: ReadPage,navigationOptions: {gesturesEnabled:false}},
     WebRead: {screen: WebReadPage},
