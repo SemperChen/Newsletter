@@ -3,24 +3,38 @@
  */
 import React from "react";
 import {StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
 import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import ScrollableTabView from "react-native-scrollable-tab-view";
 import CommonListPage from "./CommonListPage";
-import HomePage1 from "./HomePage1";
-import HomePage3 from "./HomePage3";
-import HomePage2 from "./HomePage2";
-import Bookstore from "./novel/Bookstore";
-import FacebookTabBar from "../commons/FacebookTabBar";
 import ScrollableTabBar from '../commons/ScrollableTabBar'
+import I18n from "../i18n/i18n";
+import {TAB_ICON_SIZE} from "../constants/constants";
 class HomePage extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
+    static navigationOptions = ({navigation, screenProps}) => ({
+        tabBarLabel: ({focused}) => (
+            <Text style={[{
+                color: screenProps.appTheme.darkColor,
+                fontSize: 12,
+                marginBottom: 5
+            }, focused ?
+                {color: screenProps.appTheme.darkColor} :
+                {color: screenProps.appTheme.lightColor}]}>{I18n.t('bookcase')}</Text>
+        ),
+        tabBarIcon: ({focused}) => (
+            <MaterialIcons name="home" size={TAB_ICON_SIZE}
+                           style={focused ?
+                               {color: screenProps.appTheme.darkColor} :
+                               {color: screenProps.appTheme.lightColor}}/>
+        ),
+    });
     constructor() {
         super()
         StatusBar.setHidden(true)
+    }
+
+    navToArticlePage=()=>{
+        this.props.navigation.navigate('Article')
     }
 
     render() {
@@ -63,20 +77,20 @@ class HomePage extends React.Component {
                     tabBarInactiveTextColor='#aaa'
                     tabBarUnderlineStyle={{
                         backgroundColor: 'gold',
-                        height: 0
+                        height: 1
                     }}>
-                    <CommonListPage tabLabel={'TAB1'}/>
-                    <CommonListPage tabLabel={'TAB2'}/>
-                    <CommonListPage tabLabel={'TAB3'}/>
-                    <CommonListPage tabLabel={'TAB4'}/>
-                    <CommonListPage tabLabel={'TAB5'}/>
-                    <CommonListPage tabLabel={'TAB6'}/>
-                    <CommonListPage tabLabel={'TAB11'}/>
-                    <CommonListPage tabLabel={'TAB21'}/>
-                    <CommonListPage tabLabel={'TAB31'}/>
-                    <CommonListPage tabLabel={'TAB41'}/>
-                    <CommonListPage tabLabel={'TAB51'}/>
-                    <CommonListPage tabLabel={'TAB61'}/>
+                    <CommonListPage navToArticlePage={this.navToArticlePage} tabLabel={'区块链'}/>
+                    <CommonListPage navToArticlePage={this.navToArticlePage} tabLabel="NBA"/>
+                    <CommonListPage navToArticlePage={this.navToArticlePage} tabLabel={'王者荣耀王者荣耀'}/>
+                    <CommonListPage navToArticlePage={this.navToArticlePage} tabLabel={'北京'}/>
+                    <CommonListPage navToArticlePage={this.navToArticlePage} tabLabel={'川菜'}/>
+                    <CommonListPage tabLabel={'胡歌'}/>
+                    <CommonListPage tabLabel={'Java'}/>
+                    <CommonListPage tabLabel={'node'}/>
+                    <CommonListPage tabLabel={'小说'}/>
+                    <CommonListPage tabLabel={'斗破苍穹'}/>
+                    <CommonListPage tabLabel={'变形金刚'}/>
+                    <CommonListPage tabLabel={'香港'}/>
                 </ScrollableTabView>
             </View>
 

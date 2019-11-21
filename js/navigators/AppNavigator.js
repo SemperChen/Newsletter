@@ -29,6 +29,7 @@ import HomePage2 from "../components/HomePage2";
 import HomePage3 from "../components/HomePage3";
 import HomePage1 from "../components/HomePage1";
 import CommonListPage from "../components/CommonListPage";
+import ArticlePage from "../components/ArticlePage";
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -75,9 +76,7 @@ let RootStack = createStackNavigator({
     User: {screen: UserPage},
     AddNews: {screen: AddNewsPage},
     Home: {screen: HomePage},
-    Home1: {screen: HomePage1},
-    Home2: {screen: HomePage2},
-    Home3: {screen: HomePage3},
+    Article: {screen: ArticlePage},
 
     CommonList: {screen: CommonListPage},
 
