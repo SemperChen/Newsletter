@@ -31,7 +31,8 @@ import HomePage1 from "../components/HomePage1";
 import CommonListPage from "../components/CommonListPage";
 import ArticlePage from "../components/ArticlePage";
 import SearchPage from "../components/SearchPage";
-import My from "../components/novel/My";
+import My from "../components/My";
+import CollectionPage from "../components/CollectionPage";
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -80,9 +81,8 @@ let RootStack = createStackNavigator({
     Home: {screen: HomePage},
     SearchPage: {screen: SearchPage,navigationOptions: {header:null}},
     Article: {screen: ArticlePage},
-
+    Collection:{screen:CollectionPage},
     CommonList: {screen: CommonListPage},
-
     Splash: {screen: SplashPage},
     SelectSex: {screen: SelectSexPage},
     App: {screen: TabContainer,navigationOptions: {header:null}},

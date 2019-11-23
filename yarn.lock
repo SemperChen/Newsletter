@@ -5890,6 +5890,11 @@ react-native-storage@^1.0.1:
     opencollective "^1.0.3"
     opencollective-postinstall "^2.0.2"
 
+react-native-swipe-list-view@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/react-native-swipe-list-view/download/react-native-swipe-list-view-2.0.5.tgz#4cf42ce7ca29f83234ff64adbf528cf21f20968a"
+  integrity sha1-TPQs58op+DI0/2Stv1KM8h8gloo=
+
 react-native-tab-view@^2.9.0:
   version "2.10.2"
   resolved "https://registry.npm.taobao.org/react-native-tab-view/download/react-native-tab-view-2.10.2.tgz#35ae92f574f2220312138f479a99ad3cbf981b6f"

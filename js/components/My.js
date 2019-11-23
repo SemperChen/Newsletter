@@ -3,15 +3,15 @@
  */
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {CACHE_DIR_PATH, READER_SEX, TAB_ICON_SIZE} from "../../constants/constants";
+import {CACHE_DIR_PATH, READER_SEX, TAB_ICON_SIZE} from "../constants/constants";
 import {DeviceEventEmitter, Modal, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import I18n from "../../i18n/i18n";
-import {getChineseText} from "../../utils/LanguageUtil";
-import {WIDTH} from "../../utils/DimensionsUtil";
-import {saveAppConfig} from "../../utils/ConfigUtil";
+import I18n from "../i18n/i18n";
+import {getChineseText} from "../utils/LanguageUtil";
+import {WIDTH} from "../utils/DimensionsUtil";
+import {saveAppConfig} from "../utils/ConfigUtil";
 import RNFS from "react-native-fs";
-import ToastUtil from "../../utils/ToastUtil";
+import ToastUtil from "../utils/ToastUtil";
 
 const fontSizeNames = ["小号", "标准", "大号", "特大号"]
 const autoPlayNames = ["WiFi与蜂窝数据", "仅WiFi", "从不"]
@@ -216,7 +216,7 @@ class My extends React.Component {
                     marginBottom: 5
                 }, focused ?
                     {color: screenProps.appTheme.darkColor} :
-                    {color: screenProps.appTheme.lightColor}]}>{I18n.t('explore')}</Text>
+                    {color: screenProps.appTheme.lightColor}]}>我的</Text>
             ),
             tabBarIcon: ({focused}) => (
                 <MaterialIcons name="person" size={TAB_ICON_SIZE}
@@ -251,7 +251,11 @@ class My extends React.Component {
                         paddingTop: 0,
                         marginHorizontal: 12
                     }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>{
+                                this.props.navigation.navigate('Collection')
+                            }}
+                        >
                             <View
                                 style={{justifyContent: "center", alignItems: 'center'}}
                             >

@@ -19,7 +19,7 @@ class HomePage extends React.Component {
                 marginBottom: 5
             }, focused ?
                 {color: screenProps.appTheme.darkColor} :
-                {color: screenProps.appTheme.lightColor}]}>{I18n.t('bookcase')}</Text>
+                {color: screenProps.appTheme.lightColor}]}>资讯</Text>
         ),
         tabBarIcon: ({focused}) => (
             <MaterialIcons name="explore" size={TAB_ICON_SIZE}
