@@ -56,7 +56,7 @@ class Bookstore extends React.Component {
 
     componentDidMount() {
         if(Platform.OS === 'android'){
-            StatusBar.setBackgroundColor(this.props.screenProps.appTheme.darkColor);
+            // StatusBar.setBackgroundColor(this.props.screenProps.appTheme.darkColor);
         }
         this._initData();
         this.subscription = DeviceEventEmitter.addListener('ChangeReaderSex', () => {

@@ -22,7 +22,7 @@ class HomePage extends React.Component {
                 {color: screenProps.appTheme.lightColor}]}>{I18n.t('bookcase')}</Text>
         ),
         tabBarIcon: ({focused}) => (
-            <MaterialIcons name="home" size={TAB_ICON_SIZE}
+            <MaterialIcons name="explore" size={TAB_ICON_SIZE}
                            style={focused ?
                                {color: screenProps.appTheme.darkColor} :
                                {color: screenProps.appTheme.lightColor}}/>
@@ -38,12 +38,11 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const appTheme = this.props.screenProps.appTheme;
         return (
             <View style={{flex:1}}>
                 <TouchableOpacity
                     onPress={() => {
-                        this.props.navigation.navigate('Search')
+                        this.props.navigation.navigate('SearchPage')
                     }}
                     style={{
                         backgroundColor: '#fff',

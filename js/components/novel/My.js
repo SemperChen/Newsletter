@@ -8,16 +8,16 @@ import {DeviceEventEmitter, Modal, ScrollView, StyleSheet, Switch, Text, Touchab
 import Icon from "react-native-vector-icons/Ionicons";
 import I18n from "../../i18n/i18n";
 import {getChineseText} from "../../utils/LanguageUtil";
-import {HEIGHT, WIDTH} from "../../utils/DimensionsUtil";
+import {WIDTH} from "../../utils/DimensionsUtil";
 import {saveAppConfig} from "../../utils/ConfigUtil";
 import RNFS from "react-native-fs";
 import ToastUtil from "../../utils/ToastUtil";
-import { withNavigationFocus } from 'react-navigation';
 
-const fontSizeNames = ["小号","标准","大号","特大号"]
-const autoPlayNames = ["WiFi与蜂窝数据","仅WiFi","从不"]
-const newsUpdateCycleNames = ["即时","每小时","每晚7点"]
-class Explore extends React.Component {
+const fontSizeNames = ["小号", "标准", "大号", "特大号"]
+const autoPlayNames = ["WiFi与蜂窝数据", "仅WiFi", "从不"]
+const newsUpdateCycleNames = ["即时", "每小时", "每晚7点"]
+
+class My extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -106,7 +106,7 @@ class Explore extends React.Component {
                                     }}>
                                     <View style={styles.item}>
                                         <Text style={styles.itemLeftText}>{item.name}</Text>
-                                        {this.index===index?<Text>☑️</Text>:null}
+                                        {this.index === index ? <Text>☑️</Text> : null}
                                     </View>
                                 </TouchableOpacity>
                             )
@@ -228,9 +228,6 @@ class Explore extends React.Component {
     };
 
     render() {
-        if(this.props.isFocused){
-            console.log(123321)
-        }
         const appTheme = this.props.screenProps.appTheme;
         return (
             <ScrollView style={{flex: 1, backgroundColor: '#fafafa'}}>
@@ -241,47 +238,54 @@ class Explore extends React.Component {
                     }}
                     style={[styles.loginSuc, {backgroundColor: '#fff'}]}>
                     <View style={[styles.imgContent, {backgroundColor: appTheme.primaryColor}]}>
-                        <Text style={{color:'#fff',fontSize:18,fontWeight: 'bold'}}>登录</Text>
+                        <Text style={{color: '#fff', fontSize: 18, fontWeight: 'bold'}}>登录</Text>
                     </View>
                     {/*<Text*/}
                     {/*    style={{color: '#000'}}>{NovelAppConfig.user && NovelAppConfig.user.username ? NovelAppConfig.user.username : '游客'}</Text>*/}
 
-                    <View style={{width:'100%',flexDirection:'row',justifyContent:'space-around',padding:12,paddingTop:0,marginHorizontal:12}}>
+                    <View style={{
+                        width: '100%',
+                        flexDirection: 'row',
+                        justifyContent: 'space-around',
+                        padding: 12,
+                        paddingTop: 0,
+                        marginHorizontal: 12
+                    }}>
                         <TouchableOpacity>
                             <View
-                                style={{justifyContent:"center",alignItems:'center'}}
+                                style={{justifyContent: "center", alignItems: 'center'}}
                             >
                                 <Icon
                                     name='ios-heart'
                                     size={26}
                                     color={'rgb(242,161,72)'}
                                 />
-                                <Text style={{fontSize:12,color:'rgb(95,95,95)'}}>收藏</Text>
+                                <Text style={{fontSize: 12, color: 'rgb(95,95,95)'}}>收藏</Text>
                             </View>
                         </TouchableOpacity>
 
                         <TouchableOpacity>
                             <View
-                                style={{justifyContent:"center",alignItems:'center'}}
+                                style={{justifyContent: "center", alignItems: 'center'}}
                             >
                                 <Icon
                                     name='ios-book'
                                     size={26}
                                     color={'rgb(62,154,125)'}
                                 />
-                                <Text style={{fontSize:12,color:'rgb(95,95,95)'}}>书架</Text>
+                                <Text style={{fontSize: 12, color: 'rgb(95,95,95)'}}>书架</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View
-                                style={{justifyContent:"center",alignItems:'center'}}
+                                style={{justifyContent: "center", alignItems: 'center'}}
                             >
                                 <Icon
                                     name='ios-notifications'
                                     size={26}
                                     color={'rgb(61,145,235)'}
                                 />
-                                <Text style={{fontSize:12,color:'rgb(95,95,95)'}}>消息</Text>
+                                <Text style={{fontSize: 12, color: 'rgb(95,95,95)'}}>消息</Text>
                             </View>
                         </TouchableOpacity>
 
@@ -368,7 +372,7 @@ class Explore extends React.Component {
 
                 </TouchableOpacity>
 
-               {/* <TouchableOpacity
+                {/* <TouchableOpacity
                     style={styles.btn}
                     onPress={() => {
                         NovelAppConfig.isKeepAwake = !this.state.isKeepAwake;
@@ -419,8 +423,6 @@ class Explore extends React.Component {
                 </TouchableOpacity>*/}
 
 
-
-
                 <TouchableOpacity
                     style={styles.btn}
                     onPress={() => {
@@ -451,13 +453,14 @@ class Explore extends React.Component {
                     }}>
                     <View style={styles.item}>
                         <Text style={styles.itemLeftText}>资讯更新周期</Text>
-                        <Text style={styles.itemValue}>{newsUpdateCycleNames[NovelAppConfig.newsUpdateCycleIndex]}</Text>
+                        <Text
+                            style={styles.itemValue}>{newsUpdateCycleNames[NovelAppConfig.newsUpdateCycleIndex]}</Text>
                     </View>
 
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    style={[styles.btn,{marginTop:5}]}
+                    style={[styles.btn, {marginTop: 5}]}
                     onPress={() => {
                         this.clearAllBookCache()
                     }}>
@@ -492,7 +495,7 @@ class Explore extends React.Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    style={[styles.btn,{marginTop:5}]}
+                    style={[styles.btn, {marginTop: 5}]}
                     onPress={() => {
                         this.clearAllBookCache()
                     }}>
@@ -583,8 +586,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
 
-    switch:{
-        margin:-8
+    switch: {
+        margin: -8
     },
 
     skinModalContent: {
@@ -598,4 +601,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default withNavigationFocus(Explore)
+export default My

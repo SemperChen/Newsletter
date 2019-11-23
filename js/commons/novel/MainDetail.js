@@ -304,7 +304,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderTopWidth: StyleSheet.hairlineWidth,
-        borderColor: '#ccc',
+        borderColor: '#eee',
         paddingTop: 16,
         paddingBottom: 16
     },
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
         paddingTop: 1,
         paddingBottom: 1,
         borderWidth: StyleSheet.hairlineWidth,
-        borderColor: 'lightgreen',
+        borderColor: '#eee',
         borderRadius: 1,
         color: 'lightgreen',
         fontSize: 12,
@@ -334,7 +334,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         borderTopWidth: StyleSheet.hairlineWidth,
-        borderColor: '#ccc',
+        borderColor: '#eee',
     }
 });
 

@@ -5,6 +5,11 @@ import {ThemeColors} from "./ThemeFactory";
 import {lineHeights, READER_SEX, readerColors, THEME_COLORS} from "../constants/constants";
 
 global.NovelAppConfig = {
+    fontIndex:1,
+    autoplayIndex:0,
+    newsUpdateCycleIndex:2,
+    isShowPushN:true,
+
     themeColorName: THEME_COLORS.DARK,
     appThemeColor: ThemeColors.pinkColors,
     isFirstOpen: true,

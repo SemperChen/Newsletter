@@ -5,9 +5,9 @@ import {StyleSheet} from 'react-native'
 
 export const ThemeColors = {
     darkColors: {
-        primary: '#262626',
-        dark: '#1a1a1a',
-        light: '#5b5b5b',
+        primary: 'rgb(230,47,52)',
+        dark: 'rgb(230,47,52)',
+        light: 'rgb(120,120,120)',
         grayLight: '#99979c',
         borderColor: '#eee',
     },
