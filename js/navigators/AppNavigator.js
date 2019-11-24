@@ -29,6 +29,8 @@ import SearchPage from "../components/SearchPage";
 import My from "../components/My";
 import CollectionPage from "../components/CollectionPage";
 import MessagePage from "../components/MessagePage";
+import LoginPage from "../components/LoginPage";
+
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -74,6 +76,7 @@ let RootStack = createStackNavigator({
     Welcome: {screen: WelcomePage},
     User: {screen: UserPage},
     AddNews: {screen: AddNewsPage},
+    Login: {screen: LoginPage},
     Home: {screen: HomePage},
     SearchPage: {screen: SearchPage,navigationOptions: {header:null}},
     Article: {screen: ArticlePage},

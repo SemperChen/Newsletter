@@ -236,7 +236,7 @@ class My extends React.Component {
                     <TouchableOpacity
                         activeOpacity={0.9}
                         onPress={() => {
-                            this.props.navigation.navigate('User')
+                            this.props.navigation.navigate('Login')
                         }}
                         style={[styles.imgContent, {backgroundColor: appTheme.primaryColor}]}>
                         <Text style={{color: '#fff', fontSize: 18, fontWeight: 'bold'}}>登录</Text>

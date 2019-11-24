@@ -5,6 +5,8 @@ import {Platform} from "react-native";
  * @author Semper
  */
 export const rgb246 = "rgb(246,246,250)"
+export const color65 = "#656565"
+export const color95 = "#959595"
 
 export const BOOKMARKS = 'bookmark';
 export const RECEIVE_TYPE = {
