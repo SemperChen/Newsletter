@@ -1,13 +1,11 @@
 import {createAppContainer} from 'react-navigation';
-import {createBottomTabNavigator, createMaterialTopTabNavigator} from 'react-navigation-tabs';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
-import Bookcase from "../components/novel/Bookcase";
 import Bookstore from "../components/novel/Bookstore";
 import Search from "../components/novel/Search";
 import ReadPage from "../components/novel/ReadPage";
 import BookDetailPage from "../components/novel/BookDetailPage";
 import CatalogPage from "../components/novel/CatalogPage";
-import Explore from "../components/novel/Explore";
 import RankingsPage from "../components/novel/RankingsPage";
 import CategoryPage from "../components/novel/CategoryPage";
 import CategoryDetailPage from "../components/novel/CategoryDetailPage";
@@ -25,14 +23,12 @@ import BookSources from "../components/novel/BookSources";
 import UserPage from "../components/novel/UserPage";
 import AddNewsPage from "../components/AddNewsPage";
 import HomePage from "../components/HomePage";
-import HomePage2 from "../components/HomePage2";
-import HomePage3 from "../components/HomePage3";
-import HomePage1 from "../components/HomePage1";
 import CommonListPage from "../components/CommonListPage";
 import ArticlePage from "../components/ArticlePage";
 import SearchPage from "../components/SearchPage";
 import My from "../components/My";
 import CollectionPage from "../components/CollectionPage";
+import MessagePage from "../components/MessagePage";
 
 const TabContainer = createBottomTabNavigator(
     {
@@ -82,6 +78,7 @@ let RootStack = createStackNavigator({
     SearchPage: {screen: SearchPage,navigationOptions: {header:null}},
     Article: {screen: ArticlePage},
     Collection:{screen:CollectionPage},
+    Message:{screen:MessagePage},
     CommonList: {screen: CommonListPage},
     Splash: {screen: SplashPage},
     SelectSex: {screen: SelectSexPage},

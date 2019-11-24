@@ -20,6 +20,7 @@ if (__DEV__) {
         warn: () => {},
         debug: () => {},
         error: () => {},
+        assert: () => {}
     };
 }
 

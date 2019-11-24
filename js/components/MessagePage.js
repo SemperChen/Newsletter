@@ -5,11 +5,13 @@ import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View, TouchableOpacity} from "react-native";
 import {rgb246} from "../constants/constants";
 import {SwipeListView} from "react-native-swipe-list-view";
+import {WIDTH} from "../utils/DimensionsUtil";
+import FastImage from "react-native-fast-image";
 
-class CollectionPage extends React.Component {
+class MessagePage extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => {
         return {
-            headerTitle: "收藏",
+            headerTitle: "消息",
             headerStyle: {backgroundColor: '#fff', elevation: 0},
             headerTintColor: '#262626',
         }
@@ -96,22 +98,35 @@ class CollectionPage extends React.Component {
                 onPress={()=>{
                 }}
                 style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+
                     borderWidth: StyleSheet.hairlineWidth,
                     borderColor: '#ddd',
                     paddingVertical:20,
                     paddingHorizontal:20,
                     marginBottom:5,
+                    // padding:10,
                     // borderRadius: 3,
                     backgroundColor:'#fff'
                 }}>
-                <View>
-                    <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 18}}>锐参考 |
-                        一意孤行以涉港“法案”讹诈中国美国将会面临怎样的后果？</Text>
-                    <Text numberOfLines={2}
-                          style={{fontSize: 14, marginTop: 10, color: '#676767'}}>一意孤行以涉港“法案”讹诈中国美国将会面临怎样的后果？</Text>
+
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}>
+                    <FastImage
+                        source={require('../../data/img/1.jpg')}
+                        style={{width: 50, height: 50, backgroundColor: '#eee',borderRadius: 25}}
+                    />
+                    <View style={{flex:1,marginLeft:10}}>
+
+                        <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 18, color: '#535353'}}>Rachel Jayson</Text>
+                        <Text numberOfLines={1}
+                              style={{fontSize: 14, marginTop: 3, color: '#777777'}}>Can't wait to see you!</Text>
+                        <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 12,color:'#777777',position:'absolute',top:3,right:0}}>5:09 PM</Text>
+
+                    </View>
+
                 </View>
             </TouchableHighlight>
         )
@@ -126,4 +141,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CollectionPage;
+export default MessagePage;

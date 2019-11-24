@@ -231,15 +231,16 @@ class My extends React.Component {
         const appTheme = this.props.screenProps.appTheme;
         return (
             <ScrollView style={{flex: 1, backgroundColor: '#fafafa'}}>
-                <TouchableOpacity
-                    activeOpacity={0.9}
-                    onPress={() => {
-                        this.props.navigation.navigate('User')
-                    }}
+                <View
                     style={[styles.loginSuc, {backgroundColor: '#fff'}]}>
-                    <View style={[styles.imgContent, {backgroundColor: appTheme.primaryColor}]}>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={() => {
+                            this.props.navigation.navigate('User')
+                        }}
+                        style={[styles.imgContent, {backgroundColor: appTheme.primaryColor}]}>
                         <Text style={{color: '#fff', fontSize: 18, fontWeight: 'bold'}}>登录</Text>
-                    </View>
+                    </TouchableOpacity>
                     {/*<Text*/}
                     {/*    style={{color: '#000'}}>{NovelAppConfig.user && NovelAppConfig.user.username ? NovelAppConfig.user.username : '游客'}</Text>*/}
 
@@ -280,7 +281,11 @@ class My extends React.Component {
                                 <Text style={{fontSize: 12, color: 'rgb(95,95,95)'}}>书架</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>{
+                                this.props.navigation.navigate('Message')
+                            }}
+                        >
                             <View
                                 style={{justifyContent: "center", alignItems: 'center'}}
                             >
@@ -294,7 +299,7 @@ class My extends React.Component {
                         </TouchableOpacity>
 
                     </View>
-                </TouchableOpacity>
+                </View>
 
                 {/*<TouchableOpacity
                     style={{}}
