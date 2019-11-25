@@ -10,6 +10,12 @@ import {color95, rgb246} from "../constants/constants";
 
 class AboutPage extends React.Component {
 
+    static navigationOptions = {
+        headerTitle: "关于",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
+
     constructor() {
         super()
     }

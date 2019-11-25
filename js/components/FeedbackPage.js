@@ -13,6 +13,12 @@ import {HEIGHT} from "../utils/DimensionsUtil";
 
 class FeedbackPage extends React.Component {
 
+    static navigationOptions = {
+        headerTitle: "反馈",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
+
     constructor() {
         super();
     }

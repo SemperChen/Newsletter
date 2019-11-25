@@ -9,14 +9,11 @@ import {WIDTH} from "../utils/DimensionsUtil";
 import FastImage from "react-native-fast-image";
 
 class MessagePage extends React.Component {
-    static navigationOptions = ({navigation, screenProps}) => {
-        return {
-            headerTitle: "消息",
-            headerStyle: {backgroundColor: '#fff', elevation: 0},
-            headerTintColor: '#262626',
-        }
-
-    };
+    static navigationOptions = {
+        headerTitle: "我的消息",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
     constructor() {
         super()
     }

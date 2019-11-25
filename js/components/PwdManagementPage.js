@@ -12,6 +12,12 @@ import {VerificationCode} from "./LoginPage";
 
 class PwdManagementPage extends React.Component {
 
+    static navigationOptions = {
+        headerTitle: "密码管理",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
+
     constructor() {
         super();
     }

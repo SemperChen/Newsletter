@@ -12,6 +12,12 @@ import {VerificationCode} from "./LoginPage";
 
 class SafetyPage extends React.Component {
 
+    static navigationOptions = {
+        headerTitle: "安全验证",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
+
     constructor() {
         super();
     }

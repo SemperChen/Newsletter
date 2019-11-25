@@ -11,6 +11,12 @@ import {saveAppConfig} from "../utils/ConfigUtil";
 
 class AccountBindingPage extends React.Component {
 
+    static navigationOptions = {
+        headerTitle: "社交账号绑定",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
+
     constructor() {
         super()
         this.state = {

@@ -12,6 +12,12 @@ import {VerificationCode} from "./LoginPage";
 
 class ChangePhoneNumPage extends React.Component {
 
+    static navigationOptions = {
+        headerTitle: "更换手机号",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
+
     constructor() {
         super();
     }

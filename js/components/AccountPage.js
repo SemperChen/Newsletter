@@ -10,6 +10,11 @@ import {color95, rgb246} from "../constants/constants";
 
 class AccountPage extends React.Component {
 
+    static navigationOptions = {
+        headerTitle: "账号与安全",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
     constructor() {
         super()
     }

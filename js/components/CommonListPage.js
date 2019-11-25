@@ -5,6 +5,7 @@ import React from "react";
 import {FlatList, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
 import FastImage from "react-native-fast-image";
+import {color65, color95} from "../constants/constants";
 
 class CommonListPage extends React.Component {
     static navigationOptions = {
@@ -64,10 +65,10 @@ class CommonListPage extends React.Component {
                     borderColor: '#ddd'
                 }}>
                 <View style={{width: WIDTH / 8 * 5, paddingVertical: 10, marginRight: WIDTH / 24}}>
-                    <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 18}}>锐参考 |
+                    <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 16}}>锐参考 |
                         一意孤行以涉港“法案”讹诈中国美国将会面临怎样的后果？</Text>
                     <Text numberOfLines={2}
-                          style={{fontSize: 14, marginTop: 10, color: '#676767'}}>一意孤行以涉港“法案”讹诈中国美国将会面临怎样的后果？</Text>
+                          style={{fontSize: 12, marginTop: 10, color: color95}}>一意孤行以涉港“法案”讹诈中国美国将会面临怎样的后果？</Text>
                 </View>
                 <FastImage
                     source={this.props.source}

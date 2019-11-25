@@ -56,7 +56,7 @@ class SearchPage extends React.Component {
                                 // width:'80%'
                                 flex:1
                             }}
-                            value={"2019年十大经济学年度任务评选"}
+                            defaultValue={"2019年十大经济学年度任务评选"}
                         />
 
                     </View>
@@ -77,17 +77,18 @@ class SearchPage extends React.Component {
                         flexWrap: 'wrap',
                         flexDirection:'row'
                     }}>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>区块链</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>NBA</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>香港</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>政治任务</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>王者荣耀</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>我爱我家</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>周杰伦</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>JAVA</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>Node</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>斗破苍穹</Text>
-                        <Text style={{padding:5,backgroundColor:rgb246,borderRadius:5,margin:10}}>北京</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>区块链</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>NBA</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>香港</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>政治任务</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>王者荣耀</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>猪肉</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>周杰伦</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>JAVA</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>Node</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>斗破苍穹</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>北京</Text>
+                        <Text style={{padding:5,backgroundColor:"#f9f9f9",borderRadius:5,margin:10,fontSize:12}}>抖音</Text>
 
                     </View>
                 </View>
