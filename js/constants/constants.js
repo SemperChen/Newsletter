@@ -7,6 +7,7 @@ import {Platform} from "react-native";
 export const rgb246 = "rgb(246,246,250)"
 export const color65 = "#656565"
 export const color95 = "#959595"
+export const colorC5 = "#C5C5C5"
 
 export const BOOKMARKS = 'bookmark';
 export const RECEIVE_TYPE = {

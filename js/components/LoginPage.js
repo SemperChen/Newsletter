@@ -4,8 +4,10 @@
 import React from "react";
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import FastImage from "react-native-fast-image";
-import {color65, color95, TAB_ICON_SIZE} from "../constants/constants";
+import {color65, color95, colorC5, TAB_ICON_SIZE} from "../constants/constants";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import CustomIcon from "../commons/CustomIcon";
 
 class LoginPage extends React.Component {
     static navigationOptions = {
@@ -24,8 +26,9 @@ class LoginPage extends React.Component {
             <View style={{
                 backgroundColor: '#fff',
                 padding: 50,
-                justifyContent: 'center',
-                alignItems: 'center'
+                // justifyContent: 'center',
+                alignItems: 'center',
+                flex:1
             }}>
                 <MaterialIcons
                     onPress={()=>{
@@ -52,7 +55,8 @@ class LoginPage extends React.Component {
                 }}>
                     <TextInput
                         clearButtonMode="while-editing"
-                        autoFocus={true}
+                        // autoFocus={true}
+                        selectionColor={this.props.screenProps.appTheme.primaryColor}
                         style={{height: 40, borderColor: 'gray', flex: 1}}
                         placeholder={this.state.isPhoneLogin ? "手机号" : "账号"}
                         returnKeyType="next"
@@ -76,6 +80,8 @@ class LoginPage extends React.Component {
                     marginTop: 30,
                 }}>
                     <TextInput
+                        selectionColor={this.props.screenProps.appTheme.primaryColor}
+                        keyboardType="number-pad"
                         clearButtonMode="while-editing"
                         style={{height: 40, borderColor: 'gray', flex: 1}}
                         placeholder={this.state.isPhoneLogin ? "验证码" : "密码"}
@@ -114,6 +120,49 @@ class LoginPage extends React.Component {
                         <Text style={{color: color95}}>{this.state.isPhoneLogin ? "账号密码登录" : "手机登录"}</Text>
                     </TouchableOpacity>
                 </View>
+
+                <View style={{justifyContent:'flex-end',alignItems:'center',flex:1}}>
+                    <Text style={{color:color65}}>其他登录方式</Text>
+                    <View
+                        style={{flexDirection:'row',marginTop:18}}>
+
+                        <CustomIcon
+                            style={{
+                                backgroundColor:"#90EE90",
+                            }}
+                            onPress={()=>{
+                            }}
+                            name="wechat"
+                            size={20}
+                            color={"#fff"}
+                        />
+                        <CustomIcon
+                            style={{
+                                backgroundColor:"#63B8FF",
+                            }}
+                            onPress={()=>{
+                            }}
+                            name="qq"
+                            size={20}
+                            color={"#fff"}
+                        />
+                        <CustomIcon
+                            style={{
+                                backgroundColor:"#FFD700",
+                            }}
+                            onPress={()=>{
+                            }}
+                            name="weibo"
+                            size={20}
+                            color={"#FF6347"}
+                        />
+
+                    </View>
+                </View>
+
+
+
+
             </View>
 
         )
@@ -136,7 +185,7 @@ class VerificationCode extends React.Component {
                 if(!this.timer){
                     this.setState({
                         isSend:true,
-                        countdown:20,
+                        countdown:10,
                     })
                     this.timer = setInterval(()=>{
 

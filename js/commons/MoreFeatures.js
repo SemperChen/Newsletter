@@ -6,6 +6,7 @@ import {View, TouchableOpacity, Text, StyleSheet} from "react-native";
 import {HEIGHT, WIDTH} from "../utils/DimensionsUtil";
 import FastImage from "react-native-fast-image";
 import {rgb246} from "../constants/constants";
+import CustomIcon from "./CustomIcon";
 
 const itemWidth = WIDTH/7
 class MoreFeatures extends React.Component {
@@ -64,17 +65,17 @@ class MoreFeatures extends React.Component {
                     style={[{
                         flexDirection:'row',
                         alignItems:'center',
-                        justifyContent:'center',
-                        backgroundColor:rgb246,
+                        justifyContent:'flex-start',
+                        backgroundColor:"#fff",
                         display: 'flex',
                         flexWrap: 'wrap',
                         paddingVertical:itemWidth/6
-                    },{borderBottomWidth:1,borderBottomColor:'#eee'}]}
+                    },{borderBottomWidth:StyleSheet.hairlineWidth,borderBottomColor:'#eee'}]}
                 >
                     <View
                         style={styles.itemContainer}>
                         <FastImage
-                            source={this.props.source}
+                            source={require("../../data/wechat/weixin.png")}
                             style={styles.itemImg}
                         />
                         <Text style={styles.itemText}>发送给朋友</Text>
@@ -82,43 +83,59 @@ class MoreFeatures extends React.Component {
                     <View
                         style={styles.itemContainer}>
                         <FastImage
-                            source={this.props.source}
+                            source={require("../../data/wechat/circle.png")}
                             style={styles.itemImg}
                         />
-                        <Text style={styles.itemText}>新浪微博</Text>
+                        <Text style={styles.itemText}>朋友圈</Text>
                     </View>
                     <View
                         style={styles.itemContainer}>
                         <FastImage
-                            source={this.props.source}
-                            style={styles.itemImg}
-                        />
-                        <Text style={styles.itemText}>生活圈</Text>
-                    </View>
-                    <View
-                        style={styles.itemContainer}>
-                        <FastImage
-                            source={this.props.source}
-                            style={styles.itemImg}
-                        />
-                        <Text style={styles.itemText}>微信好友</Text>
-                    </View>
-                    <View
-                        style={styles.itemContainer}>
-                        <FastImage
-                            source={this.props.source}
+                            source={require("../../data/qq/qq.png")}
                             style={styles.itemImg}
                         />
                         <Text style={styles.itemText}>QQ</Text>
                     </View>
+                    <View
+                        style={styles.itemContainer}>
+                        <FastImage
+                            source={require("../../data/qq/zone.png")}
+                            style={styles.itemImg}
+                        />
+                        <Text style={styles.itemText}>QQ空间</Text>
+                    </View>
+                    <View
+                        style={styles.itemContainer}>
+                        <FastImage
+                            source={require("../../data/weibo.png")}
+                            style={styles.itemImg}
+                        />
+                        <Text style={styles.itemText}>微博</Text>
+                    </View>
 
+                    <View
+                        style={styles.itemContainer}>
+                        <FastImage
+                            source={require("../../data/dingding.png")}
+                            style={styles.itemImg}
+                        />
+                        <Text style={styles.itemText}>钉钉</Text>
+                    </View>
+                    <View
+                        style={styles.itemContainer}>
+                        <FastImage
+                            source={require("../../data/zhifubao.png")}
+                            style={styles.itemImg}
+                        />
+                        <Text style={styles.itemText}>支付宝</Text>
+                    </View>
                 </View>
                 <View
                     style={{
                         flexDirection:'row',
                         alignItems:'center',
-                        justifyContent:'center',
-                        backgroundColor:rgb246,
+                        justifyContent:'flex-start',
+                        backgroundColor:"#fff",
                         display: 'flex',
                         flexWrap: 'wrap',
                         paddingVertical:itemWidth/6
@@ -127,25 +144,43 @@ class MoreFeatures extends React.Component {
 
                     <View
                         style={styles.itemContainer}>
-                        <FastImage
-                            source={this.props.source}
-                            style={styles.itemImg}
+                        <CustomIcon
+                            style={{
+                                backgroundColor:"#90EE90",
+                            }}
+                            onPress={()=>{
+                            }}
+                            name="refresh"
+                            size={20}
+                            color={"#fff"}
                         />
                         <Text style={styles.itemText}>刷新</Text>
                     </View>
                     <View
                         style={styles.itemContainer}>
-                        <FastImage
-                            source={this.props.source}
-                            style={styles.itemImg}
+                        <CustomIcon
+                            style={{
+                                backgroundColor:"#63B8FF",
+                            }}
+                            onPress={()=>{
+                            }}
+                            name="link"
+                            size={20}
+                            color={"#fff"}
                         />
                         <Text style={styles.itemText}>复制链接</Text>
                     </View>
                     <View
                         style={styles.itemContainer}>
-                        <FastImage
-                            source={this.props.source}
-                            style={styles.itemImg}
+                        <CustomIcon
+                            style={{
+                                backgroundColor:"#FFD700",
+                            }}
+                            onPress={()=>{
+                            }}
+                            name="more"
+                            size={20}
+                            color={"#fff"}
                         />
                         <Text style={styles.itemText}>更多</Text>
                     </View>
@@ -176,11 +211,14 @@ const styles = StyleSheet.create({
     itemContainer:{
         margin:itemWidth/6,
         alignItems:'center',
-        justifyContent:'center'
-    },
-    itemImg:{
+        justifyContent:'center',
         width: itemWidth,
         height: itemWidth,
+        // backgroundColor:'#ddd'
+    },
+    itemImg:{
+        width: 35,
+        height: 35,
         backgroundColor: '#fff',
     },
     itemText:{
