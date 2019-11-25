@@ -7,14 +7,11 @@ import {color65, color95, rgb246} from "../constants/constants";
 import {SwipeListView} from "react-native-swipe-list-view";
 
 class CollectionPage extends React.Component {
-    static navigationOptions = ({navigation, screenProps}) => {
-        return {
-            headerTitle: "我的反馈",
-            headerStyle: {backgroundColor: '#fff', elevation: 0},
-            headerTintColor: '#262626',
-        }
-
-    };
+    static navigationOptions = {
+        headerTitle: "我的收藏",
+        headerStyle: {backgroundColor: '#fff', elevation: 0},
+        headerTintColor: '#262626',
+    }
     constructor() {
         super()
     }

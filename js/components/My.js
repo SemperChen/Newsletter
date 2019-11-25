@@ -558,7 +558,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginLeft: 18,
-        paddingVertical: 14,
+        paddingVertical: 12,
         paddingRight: 18,
         // paddingHorizontal:18,
         borderTopWidth: StyleSheet.hairlineWidth,

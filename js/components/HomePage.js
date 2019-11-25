@@ -46,18 +46,19 @@ class HomePage extends React.Component {
                         this.props.navigation.navigate('SearchPage')
                     }}
                     style={{
-                        backgroundColor: this.props.screenProps.appTheme.primaryColor,
+                        backgroundColor: '#fff',
                         width: '100%',
                         justifyContent: 'center',
                     }}>
                     <View style={[{
                         marginTop: 10,
                         marginBottom: 10,
-
+                        borderWidth:StyleSheet.hairlineWidth,
+                        borderColor:'#dedede',
                         marginHorizontal: 20,
                         paddingVertical: 10,
                         paddingHorizontal: 10,
-                        backgroundColor: '#fff',
+                        backgroundColor: '#FFF',
                         borderRadius: 5,
                         flexDirection:'row',
                         alignItems:'center',
@@ -100,25 +101,6 @@ class HomePage extends React.Component {
     }
 }
 const styles = StyleSheet.create({
-    loginSuc: {
-        height: HEIGHT / 4,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderColor: '#eee',
-        backgroundColor:'#fffffe'
-    },
-    imgContent: {
-        width: WIDTH / 5,
-        height: WIDTH / 5,
-        borderRadius: WIDTH / 8,
-        backgroundColor:'#eee',
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf:'center',
-        marginTop:HEIGHT/4,
-        margin: 20
-    }
 });
 
 export default HomePage;

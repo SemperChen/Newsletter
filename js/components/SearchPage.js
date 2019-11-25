@@ -23,24 +23,28 @@ class SearchPage extends React.Component {
             <View style={{flex:1}}>
                 <View
                     style={{
-                        marginTop: 20,
+                        // marginTop: 20,
+                        margin:20,
                         backgroundColor: '#fff',
                         height:42,
                         flexDirection:'row',
-                        alignItems:'center',
-                        justifyContent:'center'
+                        // alignItems:'center',
+                        // justifyContent:'center'
                     }}>
                     <View style={[{
                         // marginTop: 20,
                         // marginHorizontal: 20,
                         // paddingVertical: 10,
                         // paddingHorizontal: 10,
-                        backgroundColor: 'rgb(240,240,240)',
+                        backgroundColor: 'rgb(250,250,250)',
                         borderRadius: 5,
                         flexDirection:'row',
                         alignItems:'center',
+                        // marginRight:10,
+                        paddingHorizontal:5,
+                        // marginHorizontal:20,
                         marginRight:10,
-                        paddingHorizontal:5
+                        flex:1
                     }]}>
                         <MaterialIcons name="search" size={20}
                                        color={'#aaa'}/>
@@ -48,8 +52,9 @@ class SearchPage extends React.Component {
                             autoFocus={true}
                             returnKeyType="search"
                             style={{
-                                backgroundColor: 'rgb(240,240,240)',
-                                width:'80%'
+                                // backgroundColor: 'rgb(240,240,240)',
+                                // width:'80%'
+                                flex:1
                             }}
                             value={"2019年十大经济学年度任务评选"}
                         />
@@ -65,7 +70,7 @@ class SearchPage extends React.Component {
                     </TouchableOpacity>
                 </View>
 
-                <View style={{margin:15}}>
+                <View style={{marginHorizontal:15}}>
                     <Text>热门搜索</Text>
                     <View style={{
                         display: 'flex',
