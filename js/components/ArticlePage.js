@@ -10,7 +10,8 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {saveAppConfig} from "../utils/ConfigUtil";
 import FontSizeSetting from "../commons/FontSizeSetting";
 import MoreFeatures from "../commons/MoreFeatures";
-import {color95} from "../constants/constants";
+import {color65, color95} from "../constants/constants";
+import {NavigationActions} from "react-navigation";
 
 let VeryExpensive = null;
 const footerItemSize = 22
@@ -27,12 +28,22 @@ class ArticlePage extends React.Component {
                 return (
                     <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10}}>
                         <Icons
+                            onPress={()=>{
+                                navigation.navigate("SearchPage")
+                            }}
                             style={{padding: 10, paddingLeft: 0}}
                             name="ios-search"
                             size={25}
                             color={'#262626'}
                         />
                         <Icons
+                            onPress={()=>{
+                                const {setShowMoreMenu} = navigation.state.params;
+                                if(setShowMoreMenu){
+
+                                }
+                                setShowMoreMenu(true)
+                            }}
                             style={{padding: 10}}
                             name="ios-more"
                             size={25}
@@ -79,8 +90,15 @@ class ArticlePage extends React.Component {
         }));
     };
 
-    componentDidMount(): void {
-        this.timer = setTimeout(this.didPress,1000)
+    setShowMoreMenu = (bool) => {
+        this.showMoreMenu = bool;
+        this.toggleMoreFeatures()
+    }
+
+    componentDidMount() {
+        this.timer = setTimeout(this.didPress,1000);
+        const {setParams} = this.props.navigation;
+        setParams({setShowMoreMenu: this.setShowMoreMenu})
     }
 
     componentWillUnmount(): void {
@@ -89,6 +107,7 @@ class ArticlePage extends React.Component {
 
     constructor() {
         super();
+        this.showMoreMenu = true;
         this.state = { needsExpensive: false };
         this.txt = '原标题：《全球通史》第7版新校本推出 《全球通史》第7版新校本推出\n' +
             '\n' +
@@ -118,7 +137,7 @@ class ArticlePage extends React.Component {
         return (
             <View>
                 <ScrollView contentContainerStyle={{padding: 10,paddingBottom:footerHeight+10}}>
-                    <Text style={{fontSize: 20, lineHeight: 30, textAlign: 'justify', letterSpacing: 1,}}
+                    <Text style={{fontSize: 16, lineHeight: 24, textAlign: 'justify', letterSpacing: 1,color:color65}}
                           selectable>{this.txt}</Text>
 
                 </ScrollView>
@@ -194,6 +213,7 @@ class ArticlePage extends React.Component {
                 {this.state.needsExpensive ?
                     <MoreFeatures
                         ref={ref=>{this._moreRef = ref}}
+                        showMoreMemu={this.showMoreMenu}
                         toggleMoreFeatures={this.toggleMoreFeatures}
                     />: null}
 

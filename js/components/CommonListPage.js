@@ -72,7 +72,7 @@ class CommonListPage extends React.Component {
                 </View>
                 <FastImage
                     source={this.props.source}
-                    style={{width: WIDTH / 4, height: WIDTH / 4, backgroundColor: '#eee'}}
+                    style={{width: WIDTH / 4, height: WIDTH / 4/4*3, backgroundColor: '#eee'}}
                 />
             </TouchableOpacity>
         )

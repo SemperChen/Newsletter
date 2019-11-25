@@ -127,27 +127,7 @@ class Bookstore extends React.Component {
         }
         return (
             <View style={{flex: 1}}>
-                <ScrollView
-                    showsVerticalScrollIndicator={false}
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={false}
-                            onRefresh={this._initData}
-                            tintColor={RefreshControlColor.tintColor}
-                            title="同步中..."
-                            titleColor={RefreshControlColor.titleColor}
-                            colors={RefreshControlColor.colors}
-                            progressBackgroundColor={RefreshControlColor.progressBackgroundColor}
-                        />
-                    }
-                >
-                    <ImageCarousel appTheme={appTheme} navToDetail={this.navToDetail}/>
-                    <HotRecommend appTheme={appTheme} navToDetail={this.navToDetail}/>
-                    <BestEndBooks appTheme={appTheme} navToDetail={this.navToDetail}/>
-                    <EditorRecommend appTheme={appTheme} navToDetail={this.navToDetail}/>
-                    <GuessYouLike appTheme={appTheme} navToDetail={this.navToDetail}/>
-                    <HotSearch appTheme={appTheme} navToDetail={this.navToDetail}/>
-                </ScrollView>
+
             </View>
 
         )

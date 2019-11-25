@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderTopWidth: 1,
         borderColor: 'rgb(200, 199, 204)',
-        paddingLeft: 10
+        // paddingLeft: 10
     },
     cacheText: {
         color: '#4e4'
