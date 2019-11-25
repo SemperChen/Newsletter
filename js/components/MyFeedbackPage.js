@@ -3,10 +3,10 @@
  */
 import React from "react";
 import {StyleSheet, Text, TouchableHighlight, View, TouchableOpacity} from "react-native";
-import {color65, color95, rgb246} from "../constants/constants";
+import {color95, rgb246} from "../constants/constants";
 import {SwipeListView} from "react-native-swipe-list-view";
 
-class CollectionPage extends React.Component {
+class MyFeedbackPage extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => {
         return {
             headerTitle: "我的反馈",
@@ -95,7 +95,7 @@ class CollectionPage extends React.Component {
             <TouchableHighlight
                 underlayColor={"#fff"}
                 onPress={()=>{
-                    this.props.navigation.navigate("Article")
+                    this.props.navigation.navigate("FeedbackDetail")
                 }}
                 style={{
                     flexDirection: 'row',
@@ -111,15 +111,13 @@ class CollectionPage extends React.Component {
 
                 }}>
                 <View style={{flex:1}}>
-                    <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 16}}>锐参考 |
-                        一意孤行以涉港“法案”讹诈中国美国将会面临怎样的后果？</Text>
-                    <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 12,marginTop: 10,color:color65}}>一意孤行以涉港“法案”讹诈中国美国将会面临怎样的后果</Text>
+                    <Text ellipsizeMode={'tail'} numberOfLines={2} style={{fontSize: 16}}>如何通过发文获得收益?</Text>
+                    <Text ellipsizeMode={'tail'} numberOfLines={1} style={{fontSize: 12,marginTop: 10}}>你好，获得收益需要首先注册成为开发者，注册方式详见下方?</Text>
                     <View style={{flexDirection:"row",justifyContent:'space-between'}}>
-                        <Text numberOfLines={1}
-                              style={{fontSize: 12, marginTop: 10, color: color95}}>来源：知乎日报</Text>
-                        <Text numberOfLines={1}
-                              style={{fontSize: 12, marginTop: 10, color: color95}}>2019-11-25  12:00</Text>
-
+                        <Text numberOfLines={2}
+                              style={{fontSize: 12, marginTop: 10, color: color95}}>2019年11月25日</Text>
+                        <Text numberOfLines={2}
+                              style={{fontSize: 12, marginTop: 10, color: color95}}>已回复</Text>
                     </View>
 
                 </View>
@@ -136,4 +134,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CollectionPage;
+export default MyFeedbackPage;

@@ -41,20 +41,23 @@ class HomePage extends React.Component {
         return (
             <View style={{flex:1}}>
                 <TouchableOpacity
+                    activeOpacity={1}
                     onPress={() => {
                         this.props.navigation.navigate('SearchPage')
                     }}
                     style={{
-                        backgroundColor: '#fff',
+                        backgroundColor: this.props.screenProps.appTheme.primaryColor,
                         width: '100%',
                         justifyContent: 'center',
                     }}>
                     <View style={[{
-                        marginTop: 20,
+                        marginTop: 10,
+                        marginBottom: 10,
+
                         marginHorizontal: 20,
                         paddingVertical: 10,
                         paddingHorizontal: 10,
-                        backgroundColor: 'rgb(240,240,240)',
+                        backgroundColor: '#fff',
                         borderRadius: 5,
                         flexDirection:'row',
                         alignItems:'center',

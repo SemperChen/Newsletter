@@ -69,7 +69,7 @@ class MoreFeatures extends React.Component {
                         backgroundColor:"#fff",
                         display: 'flex',
                         flexWrap: 'wrap',
-                        paddingVertical:itemWidth/6
+                        padding:itemWidth/6
                     },{borderBottomWidth:StyleSheet.hairlineWidth,borderBottomColor:'#eee'}]}
                 >
                     <View
@@ -138,7 +138,7 @@ class MoreFeatures extends React.Component {
                         backgroundColor:"#fff",
                         display: 'flex',
                         flexWrap: 'wrap',
-                        paddingVertical:itemWidth/6
+                        padding:itemWidth/6
                     }}
                 >
 
@@ -178,7 +178,7 @@ class MoreFeatures extends React.Component {
                             }}
                             onPress={()=>{
                             }}
-                            name="more"
+                            name="ellipsis-h"
                             size={20}
                             color={"#fff"}
                         />
@@ -189,7 +189,7 @@ class MoreFeatures extends React.Component {
                     style={{
                         width:WIDTH,
                         height:48,
-                        backgroundColor:'#fff',
+                        backgroundColor:'#fdfdfd',
                         alignItems:'center',
                         justifyContent:'center'
                     }}

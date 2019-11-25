@@ -30,6 +30,15 @@ import My from "../components/My";
 import CollectionPage from "../components/CollectionPage";
 import MessagePage from "../components/MessagePage";
 import LoginPage from "../components/LoginPage";
+import AccountPage from "../components/AccountPage";
+import SafetyPage from "../components/SafetyPage";
+import PwdManagementPage from "../components/PwdManagementPage";
+import ChangePhoneNumPage from "../components/ChangePhoneNumPage";
+import AccountBindingPage from "../components/AccountBindingPage";
+import AboutPage from "../components/AboutPage";
+import FeedbackPage from "../components/FeedbackPage";
+import MyFeedbackPage from "../components/MyFeedbackPage";
+import FeedbackDetailPage from "../components/FeedbackDetailPage";
 
 
 const TabContainer = createBottomTabNavigator(
@@ -81,6 +90,15 @@ let RootStack = createStackNavigator({
     SearchPage: {screen: SearchPage,navigationOptions: {header:null}},
     Article: {screen: ArticlePage},
     Collection:{screen:CollectionPage},
+    Account:{screen:AccountPage},
+    AccountBinding:{screen:AccountBindingPage},
+    About:{screen:AboutPage},
+    Feedback:{screen:FeedbackPage},
+    MyFeedback:{screen:MyFeedbackPage},
+    FeedbackDetail:{screen:FeedbackDetailPage},
+    Safety:{screen:SafetyPage},
+    PwdManagement:{screen:PwdManagementPage},
+    ChangePhoneNum:{screen:ChangePhoneNumPage},
     Message:{screen:MessagePage},
     CommonList: {screen: CommonListPage},
     Splash: {screen: SplashPage},

@@ -506,7 +506,7 @@ class My extends React.Component {
                 <TouchableOpacity
                     style={[styles.btn, {marginTop: 5}]}
                     onPress={() => {
-                        this.clearAllBookCache()
+                        this.props.navigation.navigate('Account')
                     }}>
                     <View style={styles.item}>
                         <View style={styles.itemLeft}>
@@ -524,7 +524,7 @@ class My extends React.Component {
                 <TouchableOpacity
                     style={styles.btn}
                     onPress={() => {
-                        this.clearAllBookCache()
+                        this.props.navigation.navigate('About')
                     }}>
                     <View style={styles.item}>
                         <View style={styles.itemLeft}>

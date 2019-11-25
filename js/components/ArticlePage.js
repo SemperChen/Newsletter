@@ -10,9 +10,11 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {saveAppConfig} from "../utils/ConfigUtil";
 import FontSizeSetting from "../commons/FontSizeSetting";
 import MoreFeatures from "../commons/MoreFeatures";
+import {color95} from "../constants/constants";
 
+let VeryExpensive = null;
 const footerItemSize = 22
-const iconColor = 'rgb(131,131,131)'
+const iconColor = color95
 export const footerHeight = 48
 class ArticlePage extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => {
@@ -53,17 +55,41 @@ class ArticlePage extends React.Component {
     }
 
     toggleMoreFeatures = () => {
-        if(!this.isOpenMore){
-            this._moreRef.open()
-            this.isOpenMore = true
+        if(this.state.needsExpensive){
+            if(!this.isOpenMore){
+                this._moreRef.open()
+                this.isOpenMore = true
+            }else {
+                this._moreRef.close()
+                this.isOpenMore = false
+            }
         }else {
-            this._moreRef.close()
-            this.isOpenMore = false
+
         }
+
+    }
+
+    didPress = () => {
+        if (VeryExpensive == null) {
+            VeryExpensive = require('../commons/MoreFeatures').default;
+        }
+
+        this.setState(() => ({
+            needsExpensive: true,
+        }));
+    };
+
+    componentDidMount(): void {
+        this.timer = setTimeout(this.didPress,1000)
+    }
+
+    componentWillUnmount(): void {
+        this.timer&&clearTimeout(this.timer)
     }
 
     constructor() {
         super();
+        this.state = { needsExpensive: false };
         this.txt = '原标题：《全球通史》第7版新校本推出 《全球通史》第7版新校本推出\n' +
             '\n' +
             '　　学者纵论“全球史观”当下之意义 《全球通史》第7版新校本推出\n' +
@@ -160,14 +186,18 @@ class ArticlePage extends React.Component {
                         {/*<Text>分享</Text>*/}
                     </TouchableOpacity>
                 </View>
+
                 <FontSizeSetting
                     ref={ref=>{this._settingRef = ref}}
                     toggleSetting={this.toggleSetting}
                 />
-                <MoreFeatures
-                    ref={ref=>{this._moreRef = ref}}
-                    toggleMoreFeatures={this.toggleMoreFeatures}
-                />
+                {this.state.needsExpensive ?
+                    <MoreFeatures
+                        ref={ref=>{this._moreRef = ref}}
+                        toggleMoreFeatures={this.toggleMoreFeatures}
+                    />: null}
+
+
             </View>
 
 

@@ -169,7 +169,7 @@ class LoginPage extends React.Component {
     }
 }
 
-class VerificationCode extends React.Component {
+export class VerificationCode extends React.Component {
 
     constructor(){
         super();
@@ -179,26 +179,34 @@ class VerificationCode extends React.Component {
         }
     }
 
+    componentWillUnmount(): void {
+        this.timer&&clearInterval(this.timer);
+    }
+
+    startCountDown = () => {
+        if(!this.timer){
+            this.setState({
+                isSend:true,
+                countdown:10,
+            })
+            this.timer = setInterval(()=>{
+
+                if(this.state.countdown===0){
+                    clearInterval(this.timer);
+                    this.timer=null
+                }else {
+                    this.setState({
+                        countdown:this.state.countdown-1
+                    });
+                }
+            },1000)
+        }
+    }
+
     render() {
         return <Text
             onPress={()=>{
-                if(!this.timer){
-                    this.setState({
-                        isSend:true,
-                        countdown:10,
-                    })
-                    this.timer = setInterval(()=>{
-
-                        if(this.state.countdown===0){
-                            clearInterval(this.timer);
-                            this.timer=null
-                        }else {
-                            this.setState({
-                                countdown:this.state.countdown-1
-                            });
-                        }
-                    },1000)
-                }
+                this.startCountDown()
             }}
             style={{
                 borderLeftWidth: StyleSheet.hairlineWidth,

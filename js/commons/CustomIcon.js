@@ -4,7 +4,7 @@
 import React from "react";
 import {StyleSheet, TouchableOpacity} from "react-native";
 import {colorC5} from "../constants/constants";
-import FontAwesome from "react-native-vector-icons/MaterialCommunityIcons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 class CustomIcon extends React.Component {
 
