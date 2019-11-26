@@ -10,13 +10,17 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import {saveAppConfig} from "../utils/ConfigUtil";
 import FontSizeSetting from "../commons/FontSizeSetting";
 import MoreFeatures from "../commons/MoreFeatures";
-import {color65, color95} from "../constants/constants";
+import {COLLECTION, color65, color95} from "../constants/constants";
 import {NavigationActions} from "react-navigation";
+import {loadData} from "../utils/SaveDataUtil";
 
 let VeryExpensive = null;
 const footerItemSize = 22
 const iconColor = color95
 export const footerHeight = 48
+
+const _findIndex = require('lodash/findIndex');
+const _remove = require('lodash/remove');
 class ArticlePage extends React.Component {
     static navigationOptions = ({navigation, screenProps}) => {
         let rankingName = I18n.t('rankingDetail');
@@ -98,17 +102,42 @@ class ArticlePage extends React.Component {
     componentDidMount() {
         this.timer = setTimeout(this.didPress,1000);
         const {setParams} = this.props.navigation;
-        setParams({setShowMoreMenu: this.setShowMoreMenu})
+        setParams({setShowMoreMenu: this.setShowMoreMenu});
+
+        // loadData(COLLECTION).then((collect)=>{
+        //     this.collect = collect
+        // })
     }
 
     componentWillUnmount(): void {
         this.timer&&clearTimeout(this.timer)
     }
 
+    //收藏和移除收藏视频开关，点一次搜藏再点一次取消收藏
+    _collectToggle = () => {
+        this.setState((prevState)=>({
+            isFavorite:!prevState.isFavorite
+        }))
+        const index = _findIndex(AppConfig.collection, (item)=>{
+            return item.id === this.video.id
+        });
+        if(index!==-1){
+            _remove(AppConfig.collection,(item)=>{
+                return item.id===this.video.id
+            })
+        }else {
+            if(this.video){
+                AppConfig.collection.push(this.video);
+                saveAppConfig(AppConfig)
+            }
+        }
+
+    }
+
     constructor() {
         super();
         this.showMoreMenu = true;
-        this.state = { needsExpensive: false };
+        this.state = { needsExpensive: false,isCollect:false };
         this.txt = '原标题：《全球通史》第7版新校本推出 《全球通史》第7版新校本推出\n' +
             '\n' +
             '　　学者纵论“全球史观”当下之意义 《全球通史》第7版新校本推出\n' +
@@ -168,18 +197,6 @@ class ArticlePage extends React.Component {
                                            style={{}}/>
                         }
 
-                        {/*<Switch*/}
-                        {/*    value={true}*/}
-                        {/*    style={{}}*/}
-                        {/*    onValueChange={(bool) => {*/}
-                        {/*        // this.setState({*/}
-                        {/*        //     isKeepAwake: bool*/}
-                        {/*        // });*/}
-                        {/*        // NovelAppConfig.isKeepAwake = bool;*/}
-                        {/*        // saveAppConfig(NovelAppConfig);*/}
-                        {/*    }}*/}
-                        {/*/>*/}
-                        {/*<Text>夜间模式</Text>*/}
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={()=>{
@@ -190,11 +207,24 @@ class ArticlePage extends React.Component {
                                        style={{}}/>
                         {/*<Text>字体大小</Text>*/}
                     </TouchableOpacity>
-                    <View style={styles.footerItem}>
-                        <MaterialIcons name="favorite" size={footerItemSize} color={iconColor}
-                                       style={{}}/>
+
+                    <TouchableOpacity
+                        onPress={()=>{
+                            this.setState({
+                                isCollect:!this.state.isCollect
+                            })
+                        }}
+                        style={styles.footerItem}>
+                        {this.state.isCollect?
+                            <MaterialIcons
+                                name="favorite" size={footerItemSize} color={iconColor}
+                                           style={{}}/>:
+                            <MaterialIcons
+                                name="favorite-border" size={footerItemSize} color={iconColor}
+                                           style={{}}/>
+                        }
                         {/*<Text>收藏</Text>*/}
-                    </View>
+                    </TouchableOpacity>
                     <TouchableOpacity
                         onPress={()=>{
                             this.toggleMoreFeatures()
@@ -226,25 +256,6 @@ class ArticlePage extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    loginSuc: {
-        height: HEIGHT / 4,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderColor: '#eee',
-        backgroundColor: '#fffffe'
-    },
-    imgContent: {
-        width: WIDTH / 5,
-        height: WIDTH / 5,
-        borderRadius: WIDTH / 8,
-        backgroundColor: '#eee',
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
-        marginTop: HEIGHT / 4,
-        margin: 20
-    },
     footerItem: {
         alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 14
     }

@@ -9,6 +9,7 @@ export const color65 = "#656565"
 export const color95 = "#959595"
 export const colorC5 = "#C5C5C5"
 
+export const COLLECTION = 'COLLECTION';
 export const BOOKMARKS = 'bookmark';
 export const RECEIVE_TYPE = {
     TEXT: 0,
